@@ -1,4 +1,4 @@
-ArrowJS CMS
+#[http://techmaster.github.io/ArrowCMS](ArrowJS CMS)
 ==================
 
 Welcome to ArrowJS CMS! ArrowJS CMS is CMS base on ArrowJS framework, it helps you build your web application easier.
@@ -6,6 +6,10 @@ Welcome to ArrowJS CMS! ArrowJS CMS is CMS base on ArrowJS framework, it helps y
 Please write us if you have any feedback.
 
 Thanks.
+## Documents
+
+Vietnamese documents:
+[http://techmaster.github.io/ArrowCMS](http://techmaster.github.io/ArrowCMS)
 
 ## Requirements
 
@@ -21,7 +25,7 @@ However, you can use Nginx to serve static files.
 Clone project from github:
 
 ```
-    git clone https://github.com/TechMaster/...
+    git clone https://github.com/TechMaster/ArrowCMS.git
 ```
 
 Then you'll need to create the database from backup file:
