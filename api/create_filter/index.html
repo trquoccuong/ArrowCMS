@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Custom filter - ARROW CMS PROJECT</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Custom filter";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ARROW CMS PROJECT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Trang chủ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../..">ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Làm quen với ArrowCMS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/">Khởi đầu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/structure/">Cấu trúc ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/module/">Module ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/config/">Cấu hình ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/theme/">Theme ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/widget/">Widget ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Tùy biến</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../">Hỗ trợ cho third-party</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Custom filter</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#tao-mot-filter-moi">Tạo một filter mới</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tao-filter-co-ham-xu-ly-bat-ong-boasync">Tạo filter có hàm xử lý bất đồng bộ(async)</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../create_theme/">Custom theme</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../basic_table/">Module data table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ARROW CMS PROJECT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tùy biến &raquo;</li>
+        
+      
+    
+    <li>Custom filter</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="tao-mot-filter-moi">Tạo một filter mới</h1>
+<p>Tạo một file javascript mới trong thư mục <code>app\custom_filters</code> VD: tạo file <code>hello_filter.js</code></p>
+<p>Nội dung của file <code>hello_filter.js</code>:</p>
+<pre><code class="js">module.exports = function (env) {
+    //hello_filter là tên của filter, có thể thay đổi thành bất kỳ tên khác
+    env.addFilter('hello_filter', function(input){
+        return &quot;Hello &quot;+ input;
+    });
+}
+</code></pre>
+
+<p>Cách sử dụng ngoài template</p>
+<pre><code>{{ &quot;Thanh&quot;|hello_filter }}
+</code></pre>
+
+<p>Kết quả</p>
+<pre><code>Hello Thanh
+</code></pre>
+
+<h1 id="tao-filter-co-ham-xu-ly-bat-ong-boasync">Tạo filter có hàm xử lý bất đồng bộ(async)</h1>
+<p>Tạo file javascript <code>async_filter.js</code> với nội dung</p>
+<pre><code class="js">module.exports = function (env) {
+    //async_filter là tên của filter, có thể thay đổi thành bất kỳ tên khác
+    env.addFilter('async_filter', function(input, callback){
+        //Gọi các hàm xử lý bất đồng bộ ở đây
+        .....
+        //Sau khi muốn kết thúc thì phải gọi hàm callback để trả về kết quả
+        //hàm callback luông có 2 biến err và res để trả về cho view
+        callback(err,res);
+    },true);//phải bổ sung thêm một biến true để báo đây là hàm bất đồng bộ
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../create_theme/" class="btn btn-neutral float-right" title="Custom theme"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="Hỗ trợ cho third-party"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../create_theme/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

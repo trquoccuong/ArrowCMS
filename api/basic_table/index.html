@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module data table - ARROW CMS PROJECT</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Module data table";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ARROW CMS PROJECT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Trang chủ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../..">ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Làm quen với ArrowCMS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/">Khởi đầu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/structure/">Cấu trúc ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/module/">Module ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/config/">Cấu hình ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/theme/">Theme ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../tutorial/widget/">Widget ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Tùy biến</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../">Hỗ trợ cho third-party</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../create_filter/">Custom filter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../create_theme/">Custom theme</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Module data table</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#su-dung-view-basic_table-trong-cac-backend-modules">Sử dụng view basic_table trong các backend modules</a></li>
+                
+                    <li><a class="toctree-l4" href="#gioi-thieu">Giới thiệu</a></li>
+                
+                    <li><a class="toctree-l4" href="#ham-__createfilter">Hàm __.createFilter</a></li>
+                
+                    <li><a class="toctree-l4" href="#cac-thuoc-tinh-e-cau-hinh-hien-thi-cot-trong-ham">Các thuộc tính để cấu hình hiển thị cột trong hàm</a></li>
+                
+                    <li><a class="toctree-l4" href="#vd-cot-co-kieu-tim-kiem-string">VD cột có kiểu tìm kiếm string</a></li>
+                
+                    <li><a class="toctree-l4" href="#vd-cot-co-kieu-tim-kiem-number">VD cột có kiểu tìm kiếm number</a></li>
+                
+                    <li><a class="toctree-l4" href="#vd-cot-co-kieu-tim-kiem-datetime">VD cột có kiểu tìm kiếm datetime</a></li>
+                
+                    <li><a class="toctree-l4" href="#vd-cot-co-kieu-tim-kiem-select">VD cột có kiểu tìm kiếm select</a></li>
+                
+                    <li><a class="toctree-l4" href="#vd-ay-u-ve-cach-su-dung">VD đầy đủ về cách sử dụng</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ARROW CMS PROJECT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Tùy biến &raquo;</li>
+        
+      
+    
+    <li>Module data table</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="su-dung-view-basic_table-trong-cac-backend-modules">Sử dụng view basic_table trong các <code>backend</code> modules</h1>
+<h2 id="gioi-thieu">Giới thiệu</h2>
+<ul>
+<li><code>basic_table.html</code> là một file có sẵn trong thư mục <code>themes\backend\default</code> nó có chức năng hiển thị dữ liệu cung cấp
+theo dạng chuẩn table boostrap, tùy theo các option được cung cấp trong dữ liệu mà nó có thể hiển thị tương ứng với dữ
+liệu đó</li>
+<li><code>basic_table.html</code> sẽ bao gồm các chức năng:<ul>
+<li><code>view</code>: hiển thị dữ liệu.</li>
+<li><code>sort</code>: sắp xếp dữ liệu theo cột được chọn.</li>
+<li><code>filter</code>: tìm kiếm dữ liệu.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Screenshot" src="../img/table.png" /></p>
+<h2 id="ham-__createfilter">Hàm <code>__.createFilter</code></h2>
+<pre><code class="js">__.createFilter(req, res, route, reset_link, default_column, default_sort,columns)
+</code></pre>
+
+<ul>
+<li><code>req</code>: biến request.</li>
+<li><code>res</code>: biến response.</li>
+<li><code>route</code>: module đang chạy.</li>
+<li><code>reset_link</code>:link thực hiện khi người dùng ấn nút <code>làm mới(reload)</code> .</li>
+<li><code>default_column</code>: cột mặc định dùng để sắp xếp.</li>
+<li><code>default_sort</code>: kiểu sắp xếp mặc định tăng dần <code>asc</code> hoặc giảm dần <code>desc</code>.</li>
+<li><code>columns</code>: mảng các cấu hình hiển thị cho từng cột.</li>
+</ul>
+<h2 id="cac-thuoc-tinh-e-cau-hinh-hien-thi-cot-trong-ham">Các thuộc tính để cấu hình hiển thị cột trong hàm</h2>
+<pre><code class="js">{
+    column: [cột để hiển thị dữ liệu],
+    width: [độ rộng],
+    header: [tiêu đề cột],
+    #link có thể lấy dữ liệu từ các cột khác theo pattern `{ten_cot}` VD:/admin/roles/{role.id}
+    link: [link khi bấm vào cột],
+    acl: [quyền để kiểm tra có hiển thị link hay không],
+    filter: {
+        #Kiểu filter `string`, `number`, `select`, `datetime`
+        data_type: [],
+        #Các option bên dưới chỉ dùng khi kiểu `data_type` là `select`
+        filter_key: [cột để tìm kiếm],
+        data_source: [nguồn dữ liệu],
+        display_key: [cột hiển thị],
+        value_key: [cột lấy giá trị]
+    }
+}
+</code></pre>
+
+<h2 id="vd-cot-co-kieu-tim-kiem-string">VD cột có kiểu tìm kiếm <code>string</code></h2>
+<pre><code class="js">{
+    column: &quot;user_email&quot;,                       # lấy cột user_email để hiển thị
+    width: '15%',                               # độ rộng của cột là 15%
+    header: &quot;Email&quot;,                            # tiêu đề cột là Email
+    filter: {
+        data_type: 'string'                     # kiểu filter dữ liệu là string
+    }
+},
+</code></pre>
+
+<h2 id="vd-cot-co-kieu-tim-kiem-number">VD cột có kiểu tìm kiếm <code>number</code></h2>
+<pre><code class="js">{
+    column: &quot;id&quot;,                               # lấy cột id để hiển thị
+    width: '15%',                               # độ rộng của cột là 15%
+    header: &quot;Mã&quot;,                               # tiêu đề cột là Mã
+    filter: {
+        data_type: 'number'                     # kiểu filter dữ liệu là number
+    }
+},
+</code></pre>
+
+<h2 id="vd-cot-co-kieu-tim-kiem-datetime">VD cột có kiểu tìm kiếm <code>datetime</code></h2>
+<pre><code class="js">{
+    column: &quot;created_at&quot;,                       # lấy cột id để hiển thị
+    width: '15%',                               # độ rộng của cột là 15%
+    header: &quot;Ngày tạo&quot;,                         # tiêu đề cột là Ngày tạo
+    type: 'datetime',                           # định dạng hiển thị cột là kiểu ngày tháng    
+    filter: {
+        data_type: 'datetime',                  # kiểu filter là datetime
+        filter_key: 'created_at'                # cột tìm kiếm là created_at
+    }
+},
+</code></pre>
+
+<h2 id="vd-cot-co-kieu-tim-kiem-select">VD cột có kiểu tìm kiếm <code>select</code></h2>
+<pre><code class="js"> {
+    column: &quot;course.title&quot;,                     # lấy cột course.title hiển thị
+    header: &quot;Khóa học&quot;,                         # tiêu đề cột là Khóa học
+    filter: {
+        type: 'select',                         # kiểu filter là select
+        filter_key: 'course_id',                # cột để so sánh là course_id
+        data_source: 'course',                  # nguồn lấy dữ liệu là bảng course
+        display_key: 'title',                   # cột để hiển thị
+        value_key: 'id'                         # cột để lấy giá trị
+    }
+},
+</code></pre>
+
+<h2 id="vd-ay-u-ve-cach-su-dung">VD đầy đủ về cách sử dụng</h2>
+<pre><code class="js">exports.list = function (req, res) {
+    // Thêm button vào toolbar
+    res.locals.createButton = __acl.addButton(req, route, 'create', '/admin/courses/create');
+    res.locals.deleteButton = __acl.addButton(req, route, 'delete');
+
+    //Cấu hình mặc định các tham số phân trang và sắp xếp
+    let page = req.params.page || 1;
+    let column = req.params.sort || 'id';
+    let order = req.params.order || 'desc';
+
+
+    // Cấu hình session để lưu lại dữ liệu từ khóa tìm kiếm
+    let session_search = {};
+    if (req.session.search) {
+        session_search = req.session.search;
+    }
+    session_search[route + '_index_list'] = req.url;
+    req.session.search = session_search;
+
+    //Config columns
+    res.locals.root_link = '/admin/courses/page/' + page + '/sort';
+
+    //Điều kiện bổ sung chỉ lấy khóa học của giảng viên đó nếu không có quyền xem tất cả(indexAll)
+    let customCondition = &quot;AND (lectures @&gt; ARRAY[&quot; + req.user.id + &quot;])&quot;;
+    //Kiểm tra user có quyền xem tất không
+    if (__acl.allow(req, route, 'indexAll')) {
+        customCondition = '';
+    }
+    //Gọi hàm tạo cấu hình
+    let filter = __.createFilter(req, res, route, '/admin/courses', column, order, [
+        {
+            column: &quot;id&quot;,
+            width: '1%',
+            header: &quot;&quot;,
+            type: 'checkbox'
+        },
+        {
+            column: &quot;title&quot;,
+            width: '25%',
+            header: &quot;Tên&quot;,
+            link: '/admin/courses/{id}',
+            acl: 'courses.update',
+            filter: {
+                data_type: 'string'
+            }
+
+        },
+        {
+            column: &quot;&quot;,
+            width: '10%',
+            header: &quot;Giáo trình&quot;,
+            alias: &quot;Xem Giáo Trình&quot;,
+            link: &quot;/admin/courses/section/{id}&quot;
+
+        },
+        {
+            column: &quot;&quot;,
+            width: '10%',
+            header: &quot;Đánh Giá&quot;,
+            alias: &quot;Xem Đánh Giá&quot;,
+            link: &quot;/admin/rate/list-course-rating/{id}&quot;
+
+        },
+        {
+            column: 'lectures',
+            header: &quot;Giảng viên&quot;,
+            type: 'array',
+            source: 'users',
+            key_to_compare: 'id',
+            key_to_value: 'display_name',
+            filter: {
+                type: 'select',
+                filter_key: 'lectures',
+                data_source: 'SELECT id, display_name FROM arr_user WHERE id = ANY(SELECT unnest(lectures) FROM course)',
+                source_type: 'query',
+                display_key: 'display_name',
+                value_key: 'id'
+            }
+        },
+        {
+            column: &quot;openning_content&quot;,
+            width: '20%',
+            header: &quot;Chú thích&quot;,
+            filter: {
+                data_type: 'string'
+            }
+        },
+        {
+            column: &quot;price&quot;,
+            width: '5%',
+            header: &quot;Giá tiền&quot;,
+            type: 'price',
+            filter: {
+                data_type: 'number'
+            }
+        },
+        {
+            column: &quot;type&quot;,
+            width: '1%',
+            header: &quot;Loại&quot;,
+            type: &quot;custom&quot;,
+            alias: {
+                &quot;1&quot;: '&lt;span class=&quot;label label-warning&quot;&gt;Offline&lt;/span&gt;',
+                &quot;2&quot;: '&lt;span class=&quot;label label-success&quot;&gt;Online&lt;/span&gt;'
+            },
+            filter: {
+                type: 'select',
+                filter_key: 'type',
+                data_source: [
+                    {
+                        name: &quot;Offline&quot;,
+                        value: 1
+                    },
+                    {
+                        name: &quot;Online&quot;,
+                        value: 2
+                    }
+
+                ],
+                display_key: 'name',
+                value_key: 'value'
+            }
+        },
+
+        {
+            column: &quot;status&quot;,
+            width: '1%',
+            header: &quot;Trạng thái&quot;,
+            filter: {
+                type: 'select',
+                filter_key: 'status',
+                data_source: [
+                    {
+                        name: &quot;publish&quot;
+                    },
+                    {
+                        name: &quot;un-publish&quot;
+                    }
+                ],
+                display_key: 'name',
+                value_key: 'name'
+            }
+
+        }
+    ], customCondition);
+    //Truy vấn CSDL lấy dữ liệu
+    __models.course.findAndCountAll({
+        attributes: filter.attributes,
+        order: filter.sort,
+        limit: __config.pagination.number_item,
+        offset: (page - 1) * __config.pagination.number_item,
+        where: filter.values
+    }).then(function (results) {
+        let totalPage = Math.ceil(results.count / __config.pagination.number_item);
+        __models.user.findAll({
+            where: [&quot;id = ANY(SELECT unnest(lectures) FROM course)&quot;],
+            raw: true
+        }).then(function (users) {
+            _module.render(req, res, 'index', {
+                title: &quot;Danh sách khóa học&quot;,
+                totalPage: totalPage,
+                items: results.rows,    #bắt buộc phải truyền dữ liệu vào biến `items`
+                sources: {users: users},
+                currentPage: page
+            });
+        }).catch(function (err) {
+            req.flash.error(err.name + ': ' + err.message);
+            console.log(err.stack);
+            res.redirect('/admin/courses');
+        });
+    }).catch(function (err) {
+        req.flash.error(err.name + ': ' + err.message);
+        console.log(err.stack);
+        res.redirect('/admin/courses');
+    });
+};
+</code></pre>
+
+<p>Khi ngoài file giao diện ta chỉ cần thực hiện gọi</p>
+<pre><code>{% include 'basic_table.html' %}
+&lt;!-- phân trang nếu có --&gt;
+{{ totalPage|pagination(currentPage,'/admin/customer-register/page/{page}/sort/'+currentColumn+'/'+currentOrder)|safe }}
+</code></pre>
+
+<p>Tham khảo thêm mã nguồn ở các module khác trong thư mục <code>core\modules</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../create_theme/" class="btn btn-neutral" title="Custom theme"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../create_theme/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

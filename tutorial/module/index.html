@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Module ArrowCMS - ARROW CMS PROJECT</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Module ArrowCMS";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ARROW CMS PROJECT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Trang chủ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../..">ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Làm quen với ArrowCMS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../">Khởi đầu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../structure/">Cấu trúc ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Module ArrowCMS</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#cau-truc-module-arrowcms">Cấu trúc module ArrowCMS</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cau-truc-file-modulejs">Cấu trúc file module.js</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#khoi-tao-mot-module">Khởi tạo một module</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#route-trong-module-arrowcms">Route trong module ArrowCMS</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#controller-trong-module-arrowcms">Controller trong module ArrowCMS</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#khai-bao-views">Khai báo views</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#khai-bao-models">Khai báo models</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#tuong-tac-voi-models-va-views">Tương tác với models và views</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../config/">Cấu hình ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../theme/">Theme ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../widget/">Widget ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Tùy biến</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/">Hỗ trợ cho third-party</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/create_filter/">Custom filter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/create_theme/">Custom theme</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/basic_table/">Module data table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ARROW CMS PROJECT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Làm quen với ArrowCMS &raquo;</li>
+        
+      
+    
+    <li>Module ArrowCMS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <blockquote>
+<p>Module ArrowCMS có cấu trúc theo mô hình MVC, có thể tái sử dụng ở các hệ thống ArrowCMS khác</p>
+</blockquote>
+<h2 id="cau-truc-module-arrowcms">Cấu trúc module ArrowCMS</h2>
+<ul>
+<li><code>dir-name</code> - Tên module.<ul>
+<li><code>backend</code> - Chứa các file xử lý phía <code>backend</code><ul>
+<li><code>controllers</code>(có thể có hoặc không) - Thư mục chứa tất cả các file xử lý nghiệp vụ.</li>
+<li><code>views</code>(có thể có hoặc không) - Thư mục chứa layout backend cho module.</li>
+<li><code>route.js</code> - File định nghĩa điều hướng.</li>
+</ul>
+</li>
+<li><code>frontend</code> - Chứa các file xử lý phía <code>frontend</code><ul>
+<li><code>controllers</code>(có thể có hoặc không) - Thư mục chứa tất cả các file xử lý nghiệp vụ.</li>
+<li><code>settings</code>(có thể có hoặc không) - Thư mục chứa route (theo cấu trúc bắt buộc) trả về menu cho frontend.</li>
+<li><code>views</code>(có thể có hoặc không) - Thư mục chứa layout frontend cho module.</li>
+<li><code>route.js</code> - File định nghĩa điều hướng.</li>
+</ul>
+</li>
+<li><code>models</code> - Thư mục chứa tất cả các file model sử dụng trong module định nghĩa theo chuẩn của <code>sequelize</code>.</li>
+<li><code>module.js</code> - File chứa thông tin định nghĩa module(tên, các chức năng ...) .</li>
+</ul>
+</li>
+</ul>
+<p>VD: module xử lý các bài viết <code>blog</code></p>
+<p><img alt="Screenshot" src="../img/img1.png" /></p>
+<h2 id="cau-truc-file-modulejs">Cấu trúc file module.js</h2>
+<p><img alt="Screenshot" src="../img/module.png" /></p>
+<ul>
+<li><code>modules.[name]</code>: name là tên của module phải trùng tên với tên thư mục chứa file <code>module.js</code><ul>
+<li><code>title</code> - Tên hiển thị đầy đủ của module.</li>
+<li><code>author</code> - Tên tác giả.</li>
+<li><code>version</code> - Phiên bản của module theo chuẩn <code>Major.Minor.Patch</code>.</li>
+<li><code>description</code> - Mô tả về module.</li>
+<li><code>rules</code> - Hệ thống quyền hạn của module. (có thể có hoặc không)<ul>
+<li><code>name</code> - tên quyền hạn,</li>
+<li><code>title</code> - Mô tả về quyền hạn trong bảng phân quyền,</li>
+</ul>
+</li>
+<li><code>backend_menu</code> - Hệ thống menu quản lý của module, (có thể có hoặc không)<ul>
+<li><code>title</code> - Tiêu đề menu của module,</li>
+<li><code>icon</code> - Biểu tượng của module,</li>
+<li><code>menus</code> - Thông tin chi tiết các menu con,<ul>
+<li><code>rule</code> - Quyền hạn để có thể vào menu con,</li>
+<li><code>title</code> - Tiêu đề của menu con,</li>
+<li><code>link</code> - Đường dẫn đến menu con,</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="khoi-tao-mot-module">Khởi tạo một module</h2>
+<ol>
+<li>Tạo thư mục với tên module bạn muốn trong thư mục <code>app</code>.</li>
+<li>Tạo ra hệ thông các file theo chuẩn cấu trúc của module.
+    Một module không nhất thiết phải có đủ cả backend và frontend</li>
+<li>Tạo file <code>module.js</code> với cấu trúc như trên</li>
+<li>Hoàn thiện route,controller,views;</li>
+</ol>
+<h2 id="route-trong-module-arrowcms">Route trong module ArrowCMS</h2>
+<p>Route trong arrowCMS khai báo như Express Route</p>
+<pre><code class="javascript">    let express = require('express'),
+        router = express.Router(),
+
+        //Khai báo các route
+    module.exports =  route    
+</code></pre>
+
+<p>Middle check quyền ở mỗi route</p>
+<pre><code>    __acl.isAllow(&lt;Quyền đã khai báo trong  file module.js&gt;)
+</code></pre>
+
+<h2 id="controller-trong-module-arrowcms">Controller trong module ArrowCMS</h2>
+<ul>
+<li>Với backend module : </li>
+</ul>
+<pre><code>    var _module = new BackModule;
+
+    // Khai báo các function xử lý 
+    // _module.read = function(req,res) { };
+
+    module.exports = _module;
+</code></pre>
+
+<ul>
+<li>Với frontend module :</li>
+</ul>
+<pre><code>    var _module = new FrontModule;
+
+    // Khai báo các function xử lý 
+    // _module.read = function(req,res) { };
+
+    module.exports = _module;
+</code></pre>
+
+<h2 id="khai-bao-views">Khai báo views</h2>
+<p>View trong ArrowCMS là các file html viết tuân thủ cú pháp nunjucks.Các file view được đặt trong thư mục <code>views</code> của từng module
+Các khối nội dung trong ArrowCMS phụ thuộc vào từng view mà người dùng sử dụng. Với layout view mặc định của ArrowCMS, views gồm có 3 phần
+   * <code>content</code> - Phần nội dung chính.
+   * <code>jsExtends</code> - Mở rộng phần javascript.
+   * <code>cssExtends</code> - Mở rộng phần css.
+Bạn có thể sử dụng 1 layout view riêng biệt hoặc mở rộng layout view mặc định :</p>
+<pre><code>    {% extends 'layout.html' %}
+</code></pre>
+
+<h2 id="khai-bao-models">Khai báo models</h2>
+<p>ArrowCMS sử dụng sequelize để tương tác với cơ sở dữ liệu. Một mẫu database đơn giản:</p>
+<pre><code class="javascript">    'use strict';
+
+    let slug = require('slug');
+
+    module.exports = function (sequelize, DataTypes) {
+        let Category = sequelize.define(&quot;category&quot;, {
+            id : {
+                type : DataTypes.INTEGER,
+                primaryKey : true,
+                autoIncrement : true,
+                validate: {
+                    isInt: {
+                        msg: 'Count must be an integer number'
+                    }
+                }
+            },
+            count: {
+                type: DataTypes.INTEGER,
+                defaultValue: 0,
+                validate : {
+                    isInt : {
+                        msg : 'Count must be an integer number'
+                    }
+                }
+            },
+            name: {
+                type: DataTypes.STRING,
+                unique: true,
+                allowNull: false
+            },
+            alias: {
+                type :   DataTypes.STRING,
+                validate : {
+                    isAlias : function (value) {
+                        if (typeof value !== 'string' || value.match(__config.regExp.alias_reg)){
+                            throw new Error('Alias cannot includes special characters');
+                        }
+                    }
+                }
+            }
+        }, {
+            tableName: 'arr_category',
+            timestamps: false,
+            hooks: {
+                beforeCreate: function (category, op, fn) {
+                    category.alias = slug(category.name).toLowerCase();
+                    fn(null, category);
+                }
+            }
+        });
+
+        Category.sync();
+        return Category
+    };
+</code></pre>
+
+<h2 id="tuong-tac-voi-models-va-views">Tương tác với models và views</h2>
+<p>Render view trong controller:</p>
+<pre><code>    _module.render(req,res,&lt;tên view trong thư mục views&gt;,&lt;Các biến truyền vào view&gt;,[function callback]);
+</code></pre>
+
+<p>Gọi flash message trong backend:</p>
+<pre><code>    req.flash.[message_type]
+</code></pre>
+
+<ul>
+<li><code>req</code> - là request.</li>
+<li><code>[message_type]</code> - bao gồm <code>error</code>, <code>success</code>, <code>warning</code>, <code>info</code>.</li>
+</ul>
+<p>ví dụ sử dụng flash message:</p>
+<pre><code class="javascript">    _module.index=function(req, res){
+        req.flash.error(&quot;Oh! có lỗi gì đó&quot;);
+        res.render('views');
+    }
+
+</code></pre>
+
+<p>Để có thể gọi đến model trong controller :</p>
+<pre><code>     __models.&lt;tên model được khai báo&gt;.&lt;query function&gt;
+</code></pre>
+
+<p>Tạo Button trong backend: </p>
+<pre><code>     res.locals.deleteButton = __acl.addButton(req, &lt;tên module&gt;, &lt;quyền cho nút&gt;);
+     res.locals.saveButton = __acl.addButton(req, &lt;tên module&gt;, &lt;quyền cho nút&gt;);
+     res.locals.backButton = __acl.addButton(req, &lt;tên module&gt;, &lt;quyền cho nút&gt;, &lt;link&gt;);
+     res.locals.createButton = __acl.addButton(req, &lt;tên module&gt;, &lt;quyền cho nút&gt;, &lt;link&gt;);
+</code></pre>
+
+<p>Tìm hiểu thêm <code>api</code> để có thể tùy biến module</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../config/" class="btn btn-neutral float-right" title="Cấu hình ArrowCMS"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../structure/" class="btn btn-neutral" title="Cấu trúc ArrowCMS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../structure/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../config/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Widget ArrowCMS - ARROW CMS PROJECT</title>
+  
+
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Widget ArrowCMS";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> ARROW CMS PROJECT</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Trang chủ</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../..">ArrowCMS</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Làm quen với ArrowCMS</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../">Khởi đầu</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../structure/">Cấu trúc ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../module/">Module ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../config/">Cấu hình ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../theme/">Theme ArrowCMS</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Widget ArrowCMS</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#cau-truc-thu-muc">Cấu trúc thư mục</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cau-truc-file-xu-ly-tac-vu-js">Cấu trúc file xử lý tác vụ *.js</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Tùy biến</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/">Hỗ trợ cho third-party</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/create_filter/">Custom filter</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/create_theme/">Custom theme</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../api/basic_table/">Module data table</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">ARROW CMS PROJECT</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Làm quen với ArrowCMS &raquo;</li>
+        
+      
+    
+    <li>Widget ArrowCMS</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="cau-truc-thu-muc">Cấu trúc thư mục</h2>
+<p><img alt="Screenshot" src="../img/widget1.png" /></p>
+<ul>
+<li><code>[widget_name]</code>: tên widget<ul>
+<li><code>*.js</code>: file javascript xử lý nghiệp vụ</li>
+<li><code>setting.html</code>: setting của widget trong backend // Tên bắt buộc không được đổi</li>
+</ul>
+</li>
+</ul>
+<h2 id="cau-truc-file-xu-ly-tac-vu-js">Cấu trúc file xử lý tác vụ <code>*.js</code></h2>
+<p>File dùng để khởi tạo widget và xử lý các nghiệp vụ của widget</p>
+<p>File này là phải được khởi tạo là <code>class</code> kế thừa thằng <code>BaseWidget</code></p>
+<p>VD:</p>
+<pre><code class="js">//Khởi tạo widget
+class Categories extends BaseWidget {
+    constructor() {
+        super();
+        //Cấu hình thông tin cho widget
+        let conf = {
+            alias: &quot;arr_categories&quot;,                    # Mã widget, cái này quan trọng và chỉ duy nhất
+            name: &quot;Categories&quot;,                         # Tên widget
+            description: __.t('m_widgets_categories'),  # Miêu tả chức năng
+            author: &quot;ZaiChi&quot;,                           # Tác giả
+            version: &quot;0.1.0&quot;,                           # Phiên bản
+            options: {                                  # Các trường đặc biệt để cấu hình, tùy chức năng widget mà người dùng tạo ra biến tùy ý
+                title: ''
+            }
+        };
+        //Gán cấu hình vào đối tượng, 2 dòng code này là mặc định và luôn cần
+        conf = _.assign(this.config, conf);
+        this.files = this.getAllLayouts(conf.alias);
+    }
+
+    //Hàm viết đè render setting của widget
+    //Viết đè hàm này khi cần có xử lý đặc biệt trước khi render ra màn hình setting
+    render(widget) {
+        let base_render = super.render;
+        let self = this;
+        return new Promise(function (resolve) {
+            __models.category.findAll({
+                order: &quot;name ASC&quot;
+            }).then(function (categories) {
+                resolve(base_render.call(self, widget, {
+                    items: categories
+                }));
+            });
+        })
+    }
+}
+
+module.exports = Categories;
+</code></pre>
+
+<p>Mỗi <code>widget</code> trong mỗi theme là khác nhau nên việc hiển thị của nó trên mỗi theme phải được viết khác nhau.</p>
+<ol>
+<li>
+<p>Trong thư mục <code>themes\frontend\[theme_name]</code> tạo thư mục <code>_widgets</code>(nếu có rồi thì thôi)</p>
+</li>
+<li>
+<p>Tạo thư mục mới có tên giống với <code>alias</code> của <code>widget</code> vừa được tạo</p>
+</li>
+<li>
+<p>Tạo file <code>default.html</code> để định nghĩa việc hiển thị của <code>widget</code></p>
+</li>
+</ol>
+<p><img alt="Screenshot" src="../img/widget2.png" /></p>
+<p>VD:</p>
+<pre><code class="html">&lt;section class=&quot;widget widget_categories&quot;&gt;
+    {% if items | length %}
+        &lt;div class=&quot;widget categories&quot;&gt;
+            &lt;h3&gt;{{ widget.data.title|title }}&lt;/h3&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                &lt;div class=&quot;col-sm-6&quot;&gt;
+                    &lt;ul class=&quot;blog_category&quot;&gt;
+                        {% for item in items %}
+                            {% if item.id == category.id %}
+                                &lt;li&gt;
+                                    &lt;a style=&quot;background-color: #c52d2f ;color: white&quot;
+                                       href=&quot;/category/{{ item.alias }}/{{ item.id }}/&quot;&gt;
+                                        {{ item.name }} &lt;span class=&quot;badge&quot;&gt; {{ item.count }}&lt;/span&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            {% else %}
+                                &lt;li&gt;
+                                    &lt;a href=&quot;/category/{{ item.alias }}/{{ item.id }}/&quot;&gt;
+                                        {{ item.name }} &lt;span class=&quot;badge&quot;&gt; {{ item.count }}&lt;/span&gt;
+                                    &lt;/a&gt;
+                                &lt;/li&gt;
+                            {% endif %}
+                        {% endfor %}
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    {% endif %}
+&lt;/section&gt;
+</code></pre>
+
+<p>Tham khảo thêm mã nguồn của widget trong thư mục <code>core\widgets</code> </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../api/" class="btn btn-neutral float-right" title="Hỗ trợ cho third-party"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../theme/" class="btn btn-neutral" title="Theme ArrowCMS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../theme/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../api/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
