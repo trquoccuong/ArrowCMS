@@ -48,12 +48,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         user_url: {
             type : DataTypes.STRING(100),
-            validate : {
-                isUrl: {
-                    msg : 'Please input valid Url'
-                }
-
-            }
+            allowNull: true
         },
         user_registered: {
             type : DataTypes.DATE,

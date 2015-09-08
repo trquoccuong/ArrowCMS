@@ -1,4 +1,4 @@
-[http://techmaster.github.io/ArrowCMS](ArrowJS CMS)
+ArrowJS CMS
 ==================
 
 Welcome to ArrowJS CMS! ArrowJS CMS is CMS base on ArrowJS framework, it helps you build your web application easier.

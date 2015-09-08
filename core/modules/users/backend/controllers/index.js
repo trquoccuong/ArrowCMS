@@ -269,7 +269,6 @@ _module.save = function (req, res, next) {
 
     // Get form data
     var data = req.body;
-
     return new Promise(function (fulfill, reject) {
         if (data.base64 && data.base64 != '') {
             let fileName = folder_upload + slug(data.user_login).toLowerCase() + '.png';
@@ -292,9 +291,12 @@ _module.save = function (req, res, next) {
                     res.redirect(back_link);
                 } else {
                     req.flash.error('Name: ' + error.name + '<br />' + 'Message: ' + error.message);
+                    console.log(req.flash);
                     res.redirect(back_link);
                 }
             });
+        }).catch(function (err) {
+            console.log(err);
         })
 };
 
