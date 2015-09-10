@@ -3,9 +3,10 @@
 ## Yêu cầu hệ thống
 
 Trước khi bắt đầu với hệ thống ArrowCMS, chắc chắn bạn đã cài đặt:  
-Nền tảng: [iojs](https://iojs.org/en/index.html)( >= `3.0.0`)   
+Nền tảng: [nodej](https://nodejs.org/en/)( >= `4.0.0`)   
 Cơ sở dữ liệu: [postgresql](http://www.postgresql.org/) (>= `9.4`)  
 Bộ nhớ đệm: [redis](http://redis.io/)   
+Imagemagick: [imagemagick](http://www.imagemagick.org/)  
 
 Với máy sử dụng hệ điều hành Linux, chúng tôi hỗ trợ bộ cài đặt tự động :
 ```

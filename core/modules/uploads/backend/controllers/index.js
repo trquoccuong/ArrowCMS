@@ -6,7 +6,7 @@ let fs = require('fs'),
     formidable = require('formidable'),
     path = require('path');
 
-let rootPath = 'fileman/Uploads';
+let rootPath = '/fileman/uploads';
 let standardPath = __base + 'public/';
 
 function checkFileExist(fileName, index, extension) {
