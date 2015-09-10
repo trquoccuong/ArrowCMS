@@ -291,12 +291,12 @@ _module.save = function (req, res, next) {
                     res.redirect(back_link);
                 } else {
                     req.flash.error('Name: ' + error.name + '<br />' + 'Message: ' + error.message);
-                    console.log(req.flash);
                     res.redirect(back_link);
                 }
             });
-        }).catch(function (err) {
-            console.log(err);
+        }).catch(function (error) {
+            req.flash.error('Name: ' + error.name + '<br />' + 'Message: ' + error.message);
+            res.redirect(back_link);
         })
 };
 
