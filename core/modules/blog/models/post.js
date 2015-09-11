@@ -29,11 +29,6 @@ module.exports = function (sequelize, DataTypes) {
                 len: {
                     args: [0, 255],
                     msg: 'Alias is too long'
-                },
-                isAlias: function (value) {
-                    if (typeof value !== 'string' || value.match(__config.regExp.alias_reg)) {
-                        throw new Error('Alias cannot includes special characters');
-                    }
                 }
             }
         },
