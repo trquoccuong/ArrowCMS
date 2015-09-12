@@ -5,6 +5,7 @@ let fs = require('fs'),
     im = require('imagemagick'),
     formidable = require('formidable'),
     path = require('path');
+var spawn = require('child_process').spawn;
 
 let rootPath = '/fileman/uploads';
 let standardPath = __base + 'public/';
@@ -201,18 +202,29 @@ exports.thumb = function (req, res) {
         res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
         res.end(img, 'binary');
     } else {
+
         // Create thumbnail
-        im.resize({
-            srcPath: standardPath + filePath,
-            dstPath: tmpFolder + '/' + filename,
-            width: width,
-            height: height
-        }, function (err, stdout, stderr) {
-            if (err) throw err;
-            let img = fs.readFileSync(tmpFolder + '/' + filename);
+        let child = spawn(im.convert.path);
+        child.on('error', function (k) {
+            let img = fs.readFileSync(standardPath + '/fileman/uploads/' + filename);
             res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
             res.end(img, 'binary');
         });
+        child.on('exit', function (k) {
+            im.resize({
+                srcPath: standardPath + filePath,
+                dstPath: tmpFolder + '/' + filename,
+                width: width,
+                height: height
+            }, function (err, stdout, stderr) {
+                if (err) throw err;
+                let img = fs.readFileSync(tmpFolder + '/' + filename);
+                res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
+                res.end(img, 'binary');
+            });
+        });
+
+
     }
 };
 
