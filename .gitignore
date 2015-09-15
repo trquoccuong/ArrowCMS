@@ -3,4 +3,4 @@ node_modules
 .bowerrc
 .DS_Store
 dump.rdb
-/config
+/config/

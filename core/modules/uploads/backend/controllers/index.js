@@ -34,7 +34,7 @@ exports.createdir = function (req, res) {
 
     fs.mkdir(standardPath + dir + '/' + name, '7777', function (err) {
         if (err) {
-            throw err;
+            res.json(err);
         } else {
             res.jsonp({"res": "ok", "msg": ""});
         }
@@ -150,7 +150,7 @@ exports.deletefile = function (req, res) {
     if (fs.existsSync(standardPath + file)) {
         fs.unlink(standardPath + file, function (err) {
             if (err) {
-                throw err;
+                res.json(err)
             } else {
                 let tmp = getFileName(file);
                 let tmp_path = standardPath + '/fileman/tmp/' + tmp;
@@ -217,7 +217,7 @@ exports.thumb = function (req, res) {
                 width: width,
                 height: height
             }, function (err, stdout, stderr) {
-                if (err) throw err;
+                if (err) res.send(err);
                 let img = fs.readFileSync(tmpFolder + '/' + filename);
                 res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
                 res.end(img, 'binary');
