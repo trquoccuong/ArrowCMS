@@ -1,0 +1,47 @@
+{
+  "name": "dazz",
+  "alias": "dazz",
+  "folder": "dazz",
+  "author": "colorlib",
+  "link": "https://colorlib.com/dazzling/",
+  "thumbnail": "thumbnail.png",
+  "sidebars": [
+    {
+      "name": "main-menu",
+      "title": "Main Menu"
+    },
+    {
+      "name": "right-sidebar",
+      "title": "Right Sidebar"
+    }
+  ],
+  "menus": [
+    {
+      "name": "main_menu",
+      "title": "Main menu"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "Dazz",
+      "title": "title",
+      "description": "description",
+      "file": "file",
+      "thumbnail": "thumbnail"
+    }
+  ],
+  "events": [
+    {
+      "name": "before_close_head_tag",
+      "description": "Occur before </head> tag"
+    },
+    {
+      "name": "after_open_body_tag",
+      "description": "Occur after <body> tag"
+    },
+    {
+      "name": "before_close_body_tag",
+      "description": "Occur before </body> tag"
+    }
+  ]
+}

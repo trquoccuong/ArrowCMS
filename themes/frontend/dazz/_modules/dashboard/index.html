@@ -1,0 +1,70 @@
+{% extends '../../layout.html' %}
+{% block contentIndex %}
+	<div id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+		<main id="main" class="site-main" role="main">
+
+			{% for post in allPost %}
+			<article id="post-1241" class="post type-post status-publish format-standard has-post-thumbnail sticky hentry category-uncategorized tag-sticky-2 tag-template">
+				<header class="entry-header page-header">
+					<h1 class="entry-title">
+						<a href="/posts/{{post.id}}/{{ post.alias }}" rel="bookmark">
+							{{ post.title }}
+						</a>
+					</h1>
+					<div class="entry-meta">
+						<span class="posted-on">
+							<i class="fa fa-calendar"></i>
+							<a href="#" rel="bookmark">
+								<time class="entry-date published">{{ post.published_at | date('j M Y') }}</time>
+							</a>
+						</span>
+						<span class="cat-links">
+                                <i class="fa fa-user"></i>
+                                <a href="/posts/{{post.created_by}}" rel="category tag">{{ post.user.display_name }}</a>
+                            </span>
+					</div><!-- .entry-meta -->
+				</header><!-- .entry-header -->
+				<div class="entry-content">
+					{% if post.image %}
+					<a href="/posts/{{post.id}}/{{ post.alias }}" title="Template: Sticky">
+						<img style="max-width: 730px !important;max-height: 300px !important;" src="{{ post.image }}" class="thumbnail col-sm-6 wp-post-image">
+					</a>
+					{% endif %}
+					<div class="col-sm-6">
+						<p>
+							{{ post.intro_text | title_length(300,'[...]') }}
+						</p>
+					</div>
+					<p>
+						<a class="btn btn-default read-more" href="/posts/{{post.id}}/{{ post.alias }}">Continue reading <i class="fa fa-chevron-right"></i>
+						</a>
+					</p>
+
+					<a href="#" title="Template: Sticky"></a>
+
+
+				</div><!-- .entry-content -->
+
+				<hr class="section-divider">
+			</article><!-- #post-## -->
+				{% endfor %}
+			{#<!---pagination---->#}
+
+			{{ totalPage | pagination_front(currentPage,"/page/{page}") }}
+
+			{#<div class="page-links">#}
+				{#Pages:#}
+				{#<a href="https://colorlib.com/dazzling/template-paginated/">#}
+					{#<span>1</span>#}
+				{#</a>#}
+				{#<a href="https://colorlib.com/dazzling/template-paginated/2/">#}
+					{#<span>2</span>#}
+				{#</a>#}
+				{#<a href="https://colorlib.com/dazzling/template-paginated/3/">#}
+					{#<span>3</span>#}
+				{#</a>#}
+			{#</div>#}
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+{% endblock %}

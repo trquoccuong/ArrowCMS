@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sử dụng trên nền - Dazzling Bootstrap Theme</title>
+  <!-- This site is optimized with the Yoast SEO plugin v2.3.4 - https://yoast.com/wordpress/plugins/seo/ -->
+  <meta name="description" content="Blogs - arrowjs.io">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sử dụng trên nền - Dazzling Bootstrap Theme">
+
+  <link rel="stylesheet" id="contact-form-7-css" href="/theme_resources/frontend/dazz/css/styles.css" type="text/css" media="all">
+  <link rel="stylesheet" id="dazzling-bootstrap-css" href="/theme_resources/frontend/dazz/css/bootstrap.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="dazzling-icons-css" href="/theme_resources/frontend/dazz/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="flexslider-css-css" href="/theme_resources/frontend/dazz/css/flexslider.css" type="text/css" media="all">
+  <link rel="stylesheet" id="dazzling-style-css" href="/theme_resources/frontend/dazz/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" id="jetpack_css-css" href="/theme_resources/frontend/dazz/css/jetpack.css" type="text/css" media="all">
+  <!--[if lt IE 9]>
+  <script src="https://cdn1.colorlib.com/dazzling/wp-content/themes/dazzling/inc/js/html5shiv.min.js"></script>
+  <script src="https://cdn1.colorlib.com/dazzling/wp-content/themes/dazzling/inc/js/respond.min.js"></script>
+  <![endif]-->
+
+<body class="home blog infinite-scroll">
+<div id="page" class="hfeed site">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      {#header#}
+      {% include 'dazz/header.html' %}
+    </div>
+  </nav><!-- .site-navigation -->
+  {% block content %}
+    <div class="top-section">
+      {#slider#}
+      {% include 'dazz/slider.html' %}
+      <div class="cfa"></div>
+    </div>
+    <div id="content" class="site-content container">
+      {% block contentIndex %}
+      {% endblock %}
+      {#--Sidebar right--#}
+      <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+        {{ "right-sidebar"|get_sidebar(route)|safe }}
+      </div><!-- #secondary -->
+    </div><!-- #content -->
+  {% endblock %}
+  {#footer#}
+  {% include 'dazz/footer.html' %}
+</div><!-- #page -->
+
+{#<div style="display:none">#}
+{#</div>#}
+
+
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/spin.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.spin.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/tiled-gallery.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/main.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/infinity.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.cycle.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/slideshow-shortcode.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.form.min.js"></script>
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/scripts.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/add-to-cart.min.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.blockUI.min.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/woocommerce.min.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jquery.cookie.min.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/cart-fragments.min.js"></script>#}
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/devicepx-jetpack.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/jetpack-carousel.js"></script>
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/mediaelement-and-player.min.js"></script>#}
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/wp-mediaelement.js"></script>#}
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/gprofiles.js"></script>#}
+{#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/wpgroho.js"></script>#}
+<script type="text/javascript" src="/theme_resources/frontend/dazz/js/flexslider.min.js"></script>
+
+</body>
+</html>
