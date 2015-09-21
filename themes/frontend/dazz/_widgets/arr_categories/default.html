@@ -1,0 +1,24 @@
+<aside id="recent-comments-2" class="widget categories">
+    {% if items | length %}
+    <h3 class="widget-title">{{ widget.data.title|title }}</h3>
+    <ul id="categories">
+        {% for item in items %}
+            {% if item.id == category.id %}
+                <li class="categories">
+                    <i class="fa fa-tags"></i>
+                    <a href="/category/{{ item.alias }}/{{ item.id }}/">
+                        {{ item.name }} <span class="badge"> {{ item.count }}</span>
+                    </a>
+                </li>
+            {% else %}
+                <li class="categories">
+                    <i class="fa fa-tags"></i>
+                    <a href="/category/{{ item.alias }}/{{ item.id }}/">
+                        {{ item.name }} <span class="badge"> {{ item.count }}</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</aside>

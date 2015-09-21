@@ -19,9 +19,12 @@ _module.index = function (req, res) {
                     published: 1
                 }
             }).then(function (post) {
-                let cateIds = post.categories.split(':').filter(function (val) {
-                    return val.match(/[0-9]+/);
-                });
+                let cateIds = [];
+                if(post.categories) {
+                    cateIds = post.categories.split(':').filter(function (val) {
+                        return val.match(/[0-9]+/);
+                    });
+                }
             if (post) {
                 __models.category.findAll({
                    where : {

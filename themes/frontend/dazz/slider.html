@@ -1,0 +1,24 @@
+<div class="flexslider">
+  <ul class="slides">
+    {% for post in postsSlider %}
+    <li class="flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;">
+      <img width="1920" height="550" src="{{ post.image }}" class="attachment-post-thumbnail wp-post-image" draggable="false">
+      <div class="flex-caption"><a href="/posts/{{post.id}}/{{ post.alias }}">
+          <h2 class="entry-title">{{ post.title |truncate(45,false,' ...') }}</h2>
+          <div class="excerpt">
+            {{ post.intro_text|title_length(250,'...') }}
+          </div>
+        </a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="flex-direction-nav">
+    <li class="flex-nav-prev">
+      <a class="flex-prev" href="#"></a>
+    </li>
+    <li class="flex-nav-next">
+      <a class="flex-next" href="#"></a>
+    </li>
+  </ul>
+</div>
