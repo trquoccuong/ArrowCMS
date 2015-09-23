@@ -82,7 +82,6 @@ _module.create = function (req, res) {
 
 _module.save = function (req, res) {
     let menu_id = 0;
-
     // Create menu
     __models.menus.create({
         name: req.body.name,
