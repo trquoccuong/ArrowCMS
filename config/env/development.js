@@ -5,8 +5,8 @@ module.exports = {
         host: 'localhost',
         port: '5432',
         database: 'arrowjs',
-        username: 'postgres',
-        password: '',
+        username: 'thangnv',
+        password: 'admin',
         dialect: 'postgres',
         logging: false
     },

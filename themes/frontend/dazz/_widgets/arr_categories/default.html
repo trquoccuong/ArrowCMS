@@ -7,14 +7,14 @@
                 <li class="categories">
                     <i class="fa fa-tags"></i>
                     <a href="/category/{{ item.alias }}/{{ item.id }}/">
-                        {{ item.name }} <span class="badge"> {{ item.count }}</span>
+                        {{ item.name }} <span class="badge right"> {{ item.count }}</span>
                     </a>
                 </li>
             {% else %}
                 <li class="categories">
                     <i class="fa fa-tags"></i>
                     <a href="/category/{{ item.alias }}/{{ item.id }}/">
-                        {{ item.name }} <span class="badge"> {{ item.count }}</span>
+                        {{ item.name }} <span style="float: right;margin-top: 3px;padding: 3px 5px " class="badge"> {{ item.count }}</span>
                     </a>
                 </li>
             {% endif %}

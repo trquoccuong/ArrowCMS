@@ -31,7 +31,7 @@ module.exports = function (app, config) {
                     totalPage: totalPage,
                     items: items,
                     title_column: 'name',
-                    link_template: '/category/{alias}'
+                    link_template: '/category/{alias}/{id}'
                 });
             });
         }

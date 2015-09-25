@@ -1,7 +1,8 @@
 <div class="widget tabbed">
 		<div class="tabs-wrapper">
+			<h3>{{ widget.data.title }}</h3>
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="https://colorlib.com/dazzling/#popular-posts" data-toggle="tab">{{ widget.data.title }}</a></li>
+				{#<li class="active"><a href="https://colorlib.com/dazzling/#popular-posts" data-toggle="tab">{{ widget.data.title }}</a></li>#}
 			</ul>
 			<div class="tab-content">
 				<ul id="popular-posts" class="tab-pane active">
@@ -14,9 +15,9 @@
                         {% endif %}
 						<div class="content">
 							<a class="tab-entry" href="/posts/{{item.id}}/{{ item.alias }}" rel="bookmark">{{ item.title|title_length(45,'...') }}</a>
-							<i>
-                                {{ item.published_at | date('j M Y') }}
-                            </i>
+							{#<i>#}
+                                {#{{ item.published_at | date('j M Y') }}#}
+                            {#</i>#}
 						</div>
 					</li>
                     {% endfor %}
