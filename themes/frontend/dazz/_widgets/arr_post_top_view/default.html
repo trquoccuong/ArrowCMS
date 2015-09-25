@@ -1,10 +1,28 @@
-<fieldset>
-    <legend>{{ widget.data.title }}</legend>
-    <ul>
-        {% for item in items %}
-            <li>
-                <a href="/posts/{{ item.id }}/{{ item.alias }}">{{ item.title|title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-</fieldset>
+<div class="widget tabbed">
+    <div class="tabs-wrapper">
+        <ul class="nav nav-tabs">
+            <h3>{{ widget.data.title }}</h3>
+        </ul>
+        <div class="tab-content">
+            <ul id="popular-posts" class="tab-pane active">
+                {% for item in items %}
+                    <li>
+                        {% if item.image %}
+                            <a href="/posts/{{item.id}}/{{ item.alias }}" class="tab-thumb" rel="bookmark">
+                                <img style="height: 60px !important;width: 60px !important;" src="{{ item.image }}" class="attachment-tab-small wp-post-image" alt="slide03" data-attachment-id="1742">
+                            </a>
+                        {% endif %}
+                        <div class="content">
+                            <a class="tab-entry" href="/posts/{{item.id}}/{{ item.alias }}" rel="bookmark">{{ item.title|title_length(55,'...') }}</a>
+                            {% if item.published_at %}
+                            <i>
+                                {{ item.published_at | date('j M Y') }}
+                            </i>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -17,12 +17,16 @@
   <link rel="stylesheet" id="flexslider-css-css" href="/theme_resources/frontend/dazz/css/flexslider.css" type="text/css" media="all">
   <link rel="stylesheet" id="dazzling-style-css" href="/theme_resources/frontend/dazz/css/style.css" type="text/css" media="all">
   <link rel="stylesheet" id="jetpack_css-css" href="/theme_resources/frontend/dazz/css/jetpack.css" type="text/css" media="all">
+  {% block cssExtends %}
+  {% endblock %}
   <!--[if lt IE 9]>
   <script src="https://cdn1.colorlib.com/dazzling/wp-content/themes/dazzling/inc/js/html5shiv.min.js"></script>
   <script src="https://cdn1.colorlib.com/dazzling/wp-content/themes/dazzling/inc/js/respond.min.js"></script>
   <![endif]-->
-
+  {{ 'before_close_head_tag'|fire_event('here is close head tag')|safe }}
+</head>
 <body class="home blog infinite-scroll">
+{{ 'after_open_body_tag'|fire_event(null)|safe }}
 <div id="page" class="hfeed site">
   <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -77,6 +81,8 @@
 {#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/gprofiles.js"></script>#}
 {#<script type="text/javascript" src="/theme_resources/frontend/dazz/js/wpgroho.js"></script>#}
 <script type="text/javascript" src="/theme_resources/frontend/dazz/js/flexslider.min.js"></script>
-
+{% block jsExtends %}
+{% endblock %}
+{{ 'before_close_body_tag'|fire_event(null)|safe }}
 </body>
 </html>

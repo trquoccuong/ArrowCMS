@@ -34,7 +34,7 @@
                             <ul>
                                 {% for category in categories %}
                                 <li class=" share-service-visible">
-                                    <a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="#">
+                                    <a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="/category/{{ category.alias }}/{{ category.id }}">
                                         <span>
                                                 <i class="fa fa-folder-open-o"></i>
                                                 {{ category.name }}

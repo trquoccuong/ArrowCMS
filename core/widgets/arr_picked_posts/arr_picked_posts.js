@@ -51,12 +51,13 @@ class PickedPosts extends BaseWidget {
         return new Promise(function (resolve) {
             let ids = widget.data.text_ids.split(',');
             widget.data.text_ids = widget.data.text_ids.trim();
-
+            let att = ['id', 'title', 'alias', 'image', 'intro_text'];
+            if(widget.data.display_date == 1 ) att.push('published_at')
             if (widget.data.text_ids.length > 0 && ids.length > 0) {
                 __models.post.findAll({
                     include: [__models.user],
                     order: "published_at DESC",
-                    attributes: ['id', 'title', 'alias', 'image', 'intro_text', 'created_at'],
+                    attributes: att,
                     where: {
                         id: ids,
                         type: 'post'

@@ -6,7 +6,6 @@ var _ = require('lodash'),
 class PostTopView extends BaseWidget {
     constructor() {
         super();
-
         let conf = {
             alias: "arr_post_top_view",
             name: "Blog Top View",
@@ -29,9 +28,11 @@ class PostTopView extends BaseWidget {
     render(widget) {
         let base_render = super.render;
         let self = this;
-
+        let att=['title','image','alias'];
+        if(widget.data.display_date == 1 ) att.push('published_at')
         return new Promise(function (resolve, reject) {
             __models.post.findAll({
+                attributes: att,
                 where: ["type = 'post'"],
                 include: [__models.user],
                 order: "hit DESC",

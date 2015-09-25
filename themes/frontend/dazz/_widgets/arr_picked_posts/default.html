@@ -1,41 +1,29 @@
 <!-- begin sidebar 1-->
-<h2>{{ widget.data.title|title }}</h2>
-<div class="tab-wrap">
-    <div class="media">
-        <div class="parrent pull-left">
-            <ul class="nav nav-tabs nav-stacked">
-                {% if items|length %}
-                    {% for item in items %}
-                        <li class="{% if loop.index == 2 %}active{% endif %}">
-                            <a href="#tab{{ loop.index }}" data-toggle="tab" class="analistic-01">{{ item.title | title_length(25,'...') }}</a>
-                        </li>
-                    {% endfor %}
-                {% endif %}
+<div class="widget tabbed">
+    <div class="tabs-wrapper">
+        <ul class="nav nav-tabs">
+            <h3>{{ widget.data.title }}</h3>
+        </ul>
+        <div class="tab-content">
+            <ul id="popular-posts" class="tab-pane active">
+                {% for item in items %}
+                    <li>
+                        {% if item.image %}
+                            <a href="/posts/{{item.id}}/{{ item.alias }}" class="tab-thumb" rel="bookmark">
+                                <img style="height: 60px !important;width: 60px !important;" src="{{ item.image }}" class="attachment-tab-small wp-post-image" alt="slide03" data-attachment-id="1742">
+                            </a>
+                        {% endif %}
+                        <div class="content">
+                            <a class="tab-entry" href="/posts/{{item.id}}/{{ item.alias }}" rel="bookmark">{{ item.title|title_length(55,'...') }}</a>
+                            {% if item.published_at %}
+                                <i>
+                                    {{ item.published_at | date('j M Y') }}
+                                </i>
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="parrent media-body">
-            <div class="tab-content">
-                {% if items|length %}
-                    {% for item in items %}
-                    <div class="tab-pane {% if loop.index == 2 %}active{% endif %}" id="tab{{ loop.index }}">
-                        <div class="media" onclick="window.location.href = '/posts/{{ item.id }}/{{ item.alias }}'">
-                            {% if item.image %}
-                            <div class="pull-left" >
-                                <img class="img-responsive" style="height: 100px;width: 100px;padding: 0px" src="{{ item.image }}">
-                            </div>
-                            {% endif %}
-                            <div class="media-body">
-                                <p>{{ item.intro_text | title_length(350,'...') }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                {% endif %}
-            </div>
-            <!--/.tab-content-->
-        </div>
-        <!--/.media-body-->
     </div>
-    <!--/.media-->
 </div>
-<!-- end sidebar1 -->
