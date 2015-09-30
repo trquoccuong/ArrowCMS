@@ -10,5 +10,8 @@ module.exports = session({
     secret: secret,
     key: 'sid',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie : {
+        httpOnly: true
+    }
 });
