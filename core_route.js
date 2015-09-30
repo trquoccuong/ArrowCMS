@@ -40,7 +40,6 @@ module.exports = function (app) {
             req.flash.warning('Email is required');
             return coreModule.render(req, res, 'forgot-password');
         }
-
         let token = '';
 
         // Generate random token
@@ -49,7 +48,9 @@ module.exports = function (app) {
 
             // Lookup user by user_email
             return __models.user.find({
-                where: 'user_email=\'' + req.body.email + '\''
+                where: {
+                    user_email: req.body.email
+                }
             });
         }).then(function (user) {
             if (!user) {
@@ -95,9 +96,12 @@ module.exports = function (app) {
                     };
 
                     return __.sendMail(mailOptions).then(function (info) {
-                        req.flash.success('An email has been sent to ' + user.user_email + ' with further instructions. Please follow the guide in email to reset password');
+                            req.flash.success('An email has been sent to ' + user.user_email + ' with further instructions. Please follow the guide in email to reset password');
                         return coreModule.render(req, res, 'reset-password');
-                    });
+                    }).catch(function (err) {
+                        req.flash.error('Name: ' + err.code);
+                        return coreModule.render(req, res, 'reset-password');
+                    })
                 }
             });
         }).catch(function (error) {

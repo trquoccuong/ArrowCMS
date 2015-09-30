@@ -43,10 +43,10 @@ _module.index = function (req, res) {
             allPost : results[1].rows,
             categories : results[2],
             totalPage: totalPage,
-            currentPage: page,
+            currentPage: page
         });
     }).catch(function (err) {
-        _module.render404();
+        _module.render404(req,res);
     })
 
 };
