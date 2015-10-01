@@ -136,25 +136,6 @@ _module.list = function (req, res) {
     });
 };
 
-_module.listAll = function (req, res) {
-    let query = req.param('query') || "";
-    query = query.toLowerCase();
-
-    __models.post.findAll({
-        where: ['LOWER(title) like \'%' + query + '%\' AND type=\'post\''],
-        order: 'title asc'
-    }).then(function (tags) {
-        let data = [];
-        if (tags.length > 0) {
-            tags.forEach(function (t) {
-                data.push({value: t.title, data: t.id});
-            });
-        }
-
-        let result = {query: query, suggestions: data};
-        res.json(result);
-    });
-};
 
 _module.view = function (req, res) {
     // Add button
@@ -357,7 +338,7 @@ _module.delete = function (req, res) {
     __models.post.findAll({
         where: {
             id: {
-                in: req.param('ids').split(',')
+                in: req.body.ids.split(',')
             }
         }
     }).then(function (posts) {
