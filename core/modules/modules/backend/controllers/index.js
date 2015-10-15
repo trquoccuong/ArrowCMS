@@ -8,8 +8,8 @@ let path = require('path'),
     admzip = require('adm-zip');
 
 let _module = new BackModule;
-let moduleManager = require('arrowjs/moduleManager');
-let menuManager = require('arrowjs/menuManager');
+let moduleManager = require('arrowjs').moduleManager;
+let menuManager = require('arrowjs').menuManager;
 
 
 _module.index = function (req, res) {

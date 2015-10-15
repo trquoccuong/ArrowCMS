@@ -5,9 +5,9 @@ var redis = require("redis").createClient();
 
 let _module = new BackModule;
 let route = 'configurations';
-var configManager = require('arrowjs/configManager');
-var moduleManager = require('arrowjs/moduleManager');
-var widgetManager = require('arrowjs/widgetManager');
+var configManager = require('arrowjs').configManager;
+var moduleManager = require('arrowjs').moduleManager;
+var widgetManager = require('arrowjs').widgetManager;
 
 _module.index = function (req, res) {
     let themes = [];
@@ -54,13 +54,13 @@ _module.detail = function (req, res) {
 
 _module.change_themes = function (req, res) {
     __config.theme = req.params.themeName;
-
-    redis.set(__config.redis_prefix + __config.key, JSON.stringify(__config), function () {
+    redis.set(__config.redis_prefix + __config.key, JSON.stringify(__config), function (a) {
         configManager.reloadConfig().then(function (k) {
             moduleManager.loadAllModules().then(function () {
                 _module.clearCache(function () {
                     widgetManager();
-                    res.send(__.t('m_configurations_backend_themes_change_message_success'));
+                    req.flash.success(__.t('m_configurations_backend_themes_change_message_success'));
+                    res.sendStatus(200);
                 })
             });
         })
