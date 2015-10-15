@@ -4,8 +4,8 @@ let _ = require('lodash');
 let redis = require('redis').createClient();
 
 let _module = new BackModule;
-var configManager = require('arrowjs/configManager');
-var moduleManager = require('arrowjs/moduleManager');
+var configManager = require('arrowjs').configManager;
+var moduleManager = require('arrowjs').moduleManager;
 
 _module.index = function (req, res) {
     _module.render(req, res, 'sites/index', {

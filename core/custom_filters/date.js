@@ -1,6 +1,6 @@
 "use strict";
 
-var dateformatter = require('arrowjs/dateformatter');
+var dateformatter = require('arrowjs').dateformatter;
 
 module.exports = function (env) {
     env.addFilter('date', function (input, format, offset, abbr) {

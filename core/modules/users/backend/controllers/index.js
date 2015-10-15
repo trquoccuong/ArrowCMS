@@ -399,12 +399,7 @@ _module.saveOAuthUserProfile = function (req, profile, done) {
         }
     }).then(function (user) {
         if (user) {
-            if (user.role_id !== profile.role_id) {
-                profile.role_id = user.role_id
-            }
-            user.updateAttributes(profile).then(function (user) {
-                return done(null, user);
-            });
+            return done(null, user);
         } else {
             __models.user.create(profile).then(function (user) {
                 return done(null, user);
