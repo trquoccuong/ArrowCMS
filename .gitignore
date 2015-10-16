@@ -1,6 +1,6 @@
-node_modules
+node_modules/
+config/
 .idea
 .bowerrc
 .DS_Store
 dump.rdb
-/config/
