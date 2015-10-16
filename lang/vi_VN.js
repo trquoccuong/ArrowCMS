@@ -382,5 +382,7 @@ module.exports = {
     "all_table_column_active": "Kick hoạt",
     "all_table_column_email": "Thư điện tử",
     "all_table_column_phone": "Điện thoại",
-    "all_table_column_role": "Vai trò"
+    "all_table_column_role": "Quyền",
+    "all_table_column_role_placeholder": "Thêm các quyền",
+    "all_table_column_current_role": "Quyền hiện tại"
 };

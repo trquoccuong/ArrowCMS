@@ -67,12 +67,7 @@ module.exports = function (sequelize, DataTypes) {
         tableName: 'arr_role',
         createdAt: 'created_at',
         updatedAt: 'modified_at',
-        deletedAt: false,
-        classMethods: {
-            associate: function (models) {
-                Role.hasMany(models.user, {foreignKey: 'role_id'});
-            }
-        }
+        deletedAt: false
     });
     Role.sync();
     return Role;

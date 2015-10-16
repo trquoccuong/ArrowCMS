@@ -383,5 +383,7 @@ module.exports = {
     "all_table_column_active": "Active",
     "all_table_column_email": "Email",
     "all_table_column_phone": "Phone",
-    "all_table_column_role": "Role"
+    "all_table_column_role": "Role",
+    "all_table_column_role_placeholder": "Choose Roles",
+    "all_table_column_current_role": "Current Role"
 };
