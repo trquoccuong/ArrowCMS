@@ -25,7 +25,7 @@
                     </header><!-- .entry-header -->
 
                     <div class="entry-content">
-                        {{ item.full_text }}
+                        {{ item.full_text | safe}}
                     </div>
                     {#<footer class="entry-meta">#}
                         {#<i class="fa fa-folder-open-o"></i> <a href="https://colorlib.com/dazzling/category/uncategorized/" rel="category tag">Uncategorized</a>. <i class="fa fa-link"></i> <a href="https://colorlib.com/dazzling/bullet-point-test/" rel="bookmark">permalink</a>.#}
