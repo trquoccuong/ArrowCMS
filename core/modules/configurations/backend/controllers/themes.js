@@ -5,7 +5,7 @@ var redis = require("redis").createClient();
 
 let _module = new BackModule;
 let route = 'configurations';
-var configManager = require('arrowjs').configManager;
+//var configManager = require('arrowjs').configManager;
 var moduleManager = require('arrowjs').moduleManager;
 var widgetManager = require('arrowjs').widgetManager;
 
@@ -55,7 +55,7 @@ _module.detail = function (req, res) {
 _module.change_themes = function (req, res) {
     __config.theme = req.params.themeName;
     redis.set(__config.redis_prefix + __config.key, JSON.stringify(__config), function (a) {
-        configManager.reloadConfig().then(function (k) {
+        __configManager.reloadConfig().then(function (k) {
             moduleManager.loadAllModules().then(function () {
                 _module.clearCache(function () {
                     widgetManager();

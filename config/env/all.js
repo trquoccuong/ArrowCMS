@@ -64,5 +64,6 @@ module.exports = {
         username_reg : /^[a-z0-9_-]+$/ig,
         display_name_reg : /[+.,!@#$%^&*();\/|<>"'\\]/g,
         phone_reg : /^\d{9,11}$/ig
-    }
+    },
+    raw_config : ["reqExp"]
 };

@@ -4,7 +4,6 @@ let _ = require('lodash');
 let redis = require('redis').createClient();
 
 let _module = new BackModule;
-var configManager = require('arrowjs').configManager;
 var moduleManager = require('arrowjs').moduleManager;
 
 _module.index = function (req, res) {
@@ -45,7 +44,7 @@ _module.update_setting = function (req, res, next) {
     __config.redis.host = data.redis_host;
     __config.redis.port = data.redis_port;
     redis.set(__config.redis_prefix + __config.key, JSON.stringify(__config), function (err,k) {
-        configManager.reloadConfig().then(function (k) {
+        __configManager.reloadConfig().then(function (k) {
             moduleManager.loadAllModules().then(function () {
                 req.flash.success(__.t('m_configurations_backend_index_flash_update_setting_success'));
             });
