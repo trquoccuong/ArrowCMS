@@ -1,0 +1,62 @@
+{% extends 'default_layout.html' %}
+{% block content %}
+    <div class="cfa"></div>
+    <div id="content" class="site-content container">
+        <div id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+            <main id="main" class="site-main" role="main">
+                <article id="post-1817" class="post-1817 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+                    <header class="entry-header page-header">
+                        {#{% if item.image %}#}
+                        {#<img width="730" height="410" src="{{ item.image }}" class="thumbnail wp-post-image">#}
+                        {#{% endif %}#}
+                        <h1 class="entry-title ">{{ item.title }}</h1>
+
+                        <div class="entry-meta">
+                            <span class="posted-on"><i class="fa fa-calendar"></i>
+                                <a href="#" rel="bookmark">
+                                    <time class="entry-date published" datetime="{{ item.published_at | date('j M Y') }}">{{ item.published_at | date('j M Y') }}</time>
+                                </a>
+                            </span>
+                            <span class="cat-links">
+                                <i class="fa fa-user"></i>
+                                <a href="/posts/{{item.created_by}}" rel="category tag">{{ item.user.display_name }}</a>
+                            </span>
+                        </div><!-- .entry-meta -->
+                    </header><!-- .entry-header -->
+
+                    <div class="entry-content">
+                        {{ item.full_text }}
+                    </div>
+                    <hr class="section-divider">
+                    <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+                        <h3 class="sd-title">Categories :</h3>
+                        <div class="sd-content">
+                            <ul>
+                                {% for category in categories %}
+                                <li class=" share-service-visible">
+                                    <a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="/category/{{ category.alias }}/{{ category.id }}">
+                                        <span>
+                                                <i class="fa fa-folder-open-o"></i>
+                                                {{ category.name }}
+                                        </span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </article><!-- #post-## -->
+                {#<nav class="navigation post-navigation" role="navigation">#}
+                    {#<h1 class="screen-reader-text">Post navigation</h1>#}
+                    {#<div class="nav-links">#}
+                        {#<div class="nav-previous">#}
+                            {#<a href="https://colorlib.com/dazzling/edge-case-no-title/" rel="prev">#}
+                                {#<i class="fa fa-chevron-left"></i> Previous Post</a></div><div class="nav-next"><a href="https://colorlib.com/dazzling/template-sticky/" rel="next">Template: Sticky <i class="fa fa-chevron-right"></i></a></div>		</div><!-- .nav-links -->#}
+                {#</nav><!-- .navigation -->#}
+            </main><!-- #main -->
+        </div><!-- #primary -->
+        <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+            {{ "right-sidebar"|get_sidebar(route)|safe }}
+        </div>
+    </div>
+{% endblock %}

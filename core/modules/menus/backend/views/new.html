@@ -440,9 +440,9 @@
             loadModuleDetail(btnLoadModule, alias, 1, search, true);
         }
 
-        $('.box-body').on('keypress', '.arr-search-menu-item', function (e) {
-            return (e.keyCode == 13);
-        });
+//        $('.box-body').on('keypress', '.arr-search-menu-item', function (e) {
+//            return (e.keyCode == 13);
+//        });
 
         var number_menu_item = 1;
         var updateOutput = function (e) {
@@ -478,7 +478,8 @@
             var html = $(htm + '</li>');
 
             $('#nestable3 > ol').append(html);
-            $('#nestable3 li:last-child').attr('data-id', number_menu_item++);
+            number_menu_item++;
+//            $('#nestable3 li:last-child').attr('data-id', number_menu_item++);
             updateOutputValue();
 
             // Highlight added menu item

@@ -6,22 +6,30 @@ Welcome to ArrowJS CMS! ArrowJS CMS is CMS base on ArrowJS framework, it helps y
 Please write us if you have any feedback.
 
 Thanks.
+## Documents
+
+Vietnamese documents:
+[http://arrowjs.io](http://arrowjs.io)
 
 ## Requirements
 
 To run this CMS you need at least:
-
+- Nodejs 4.0.0
 - PostgreSQL 9.4 or higher ([http://www.postgresql.org/](http://www.postgresql.org/))
 - Redis server. ([http://redis.io/](http://redis.io/))
 
-However, you can use Nginx to serve static files.
+If you have new VPS, you can auto install ArrowCMS with one command line :
+
+```
+    $ curl http://arrowjs.io/install.sh | sh
+```
 
 ## Installation
 
 Clone project from github:
 
 ```
-    git clone https://github.com/TechMaster/...
+    git clone https://github.com/TechMaster/ArrowCMS.git
 ```
 
 Then you'll need to create the database from backup file:

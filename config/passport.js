@@ -18,6 +18,7 @@ module.exports = function (passport) {
     passport.deserializeUser(function (id, done) {
         let key = __config.redis_prefix + 'current-user-' + id;
         redis.get(key, function (err, result) {
+
             if (result != null) {
                 let user = JSON.parse(result);
                 done(null, user);

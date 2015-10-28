@@ -5,8 +5,9 @@ let fs = require('fs'),
     im = require('imagemagick'),
     formidable = require('formidable'),
     path = require('path');
+var spawn = require('child_process').spawn;
 
-let rootPath = '/fileman/Uploads';
+let rootPath = '/fileman/uploads';
 let standardPath = __base + 'public/';
 
 function checkFileExist(fileName, index, extension) {
@@ -28,12 +29,12 @@ exports.dirtree = function (req, res) {
 };
 
 exports.createdir = function (req, res) {
-    let dir = req.param('d');
-    let name = req.param('n');
+    let dir = req.body.d;
+    let name = req.body.n;
 
     fs.mkdir(standardPath + dir + '/' + name, '7777', function (err) {
         if (err) {
-            throw err;
+            res.json(err);
         } else {
             res.jsonp({"res": "ok", "msg": ""});
         }
@@ -41,7 +42,7 @@ exports.createdir = function (req, res) {
 };
 
 exports.deletedir = function (req, res) {
-    let dir = req.param('d');
+    let dir = req.body.d;
 
     fs.rmdir(standardPath + dir, function (err) {
         if (err) {
@@ -61,8 +62,8 @@ exports.copydir = function (req, res) {
 };
 
 exports.renamedir = function (req, res) {
-    let d = req.param('d');
-    let n = req.param('n');
+    let d = req.body.d;
+    let n = req.body.n;
     let path = d.substring(0, d.lastIndexOf('/'));
 
     fs.renameSync(standardPath + d, standardPath + path + '/' + n);
@@ -70,8 +71,8 @@ exports.renamedir = function (req, res) {
 };
 
 exports.fileslist = function (req, res) {
-    let folder = req.param('d');
-    let type = req.param('type');
+    let folder = req.body.d;
+    let type = req.body.type;
     let rPath = standardPath + folder;
 
     fs.readdir(rPath, function (err, files) {
@@ -145,11 +146,11 @@ exports.downloaddir = function (req, res) {
 };
 
 exports.deletefile = function (req, res) {
-    let file = req.param('f');
+    let file = req.body.f;
     if (fs.existsSync(standardPath + file)) {
         fs.unlink(standardPath + file, function (err) {
             if (err) {
-                throw err;
+                res.json(err)
             } else {
                 let tmp = getFileName(file);
                 let tmp_path = standardPath + '/fileman/tmp/' + tmp;
@@ -173,8 +174,8 @@ exports.copyfile = function (req, res) {
 };
 
 exports.renamefile = function (req, res) {
-    let f = req.param('f');
-    let n = req.param('n');
+    let f = req.body.f;
+    let n = req.body.n;
     let path = f.substring(0, f.lastIndexOf('/'));
 
     fs.renameSync(standardPath + f, standardPath + path + '/' + n);
@@ -189,9 +190,10 @@ exports.renamefile = function (req, res) {
 };
 
 exports.thumb = function (req, res) {
-    let filePath = req.param('f');
-    let width = req.param('width');
-    let height = req.param('height');
+
+    let filePath = req.query.f;
+    let width = req.body.width;
+    let height = req.body.height;
     let tmpFolder = standardPath + '/fileman/tmp';
     let filename = getFileName(filePath);
 
@@ -201,18 +203,29 @@ exports.thumb = function (req, res) {
         res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
         res.end(img, 'binary');
     } else {
+
         // Create thumbnail
-        im.resize({
-            srcPath: standardPath + filePath,
-            dstPath: tmpFolder + '/' + filename,
-            width: width,
-            height: height
-        }, function (err, stdout, stderr) {
-            if (err) throw err;
-            let img = fs.readFileSync(tmpFolder + '/' + filename);
+        let child = spawn(im.convert.path);
+        child.on('error', function (k) {
+            let img = fs.readFileSync(standardPath + '/fileman/uploads/' + filename);
             res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
             res.end(img, 'binary');
         });
+        child.on('exit', function (k) {
+            im.resize({
+                srcPath: standardPath + filePath,
+                dstPath: tmpFolder + '/' + filename,
+                width: width,
+                height: height
+            }, function (err, stdout, stderr) {
+                if (err) res.send(err);
+                let img = fs.readFileSync(tmpFolder + '/' + filename);
+                res.writeHead(200, {'Content-Type': 'image/' + getExtension(filename)});
+                res.end(img, 'binary');
+            });
+        });
+
+
     }
 };
 

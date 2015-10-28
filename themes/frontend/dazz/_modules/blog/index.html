@@ -1,0 +1,64 @@
+{% extends 'default_layout.html' %}
+{% block content %}
+    <div class="cfa"></div>
+    <div id="content" class="site-content container">
+        <div id="primary" class="content-area col-sm-12 col-md-8 pull-left">
+            <main id="main" class="site-main" role="main">
+                {% for post in posts %}
+                    <article id="post-1241" class="post type-post status-publish format-standard has-post-thumbnail sticky hentry category-uncategorized tag-sticky-2 tag-template">
+                        <header class="entry-header page-header">
+                            <h1 class="entry-title">
+                                <a href="/posts/{{post.id}}/{{ post.alias }}" rel="bookmark">
+                                    {{ post.title }}
+                                </a>
+                            </h1>
+                            <div class="entry-meta">
+                            <span class="posted-on">
+                                <i class="fa fa-calendar"></i>
+                                <a href="#" rel="bookmark">
+                                    <time class="entry-date published">{{ post.published_at | date('j M Y') }}</time>
+                                </a>
+                            </span>
+                                <span class="cat-links">
+                                <i class="fa fa-user"></i>
+                                <a href="/posts/{{post.created_by}}" rel="category tag">{{ post.display_name }}</a>
+                            </span>
+                                {#<span class="cat-links">#}
+                                {#<i class="fa fa-user"></i>#}
+                                {#<a href="#" rel="category tag">{{ post.user.display_name }}</a>#}
+                                {#</span>#}
+                            </div><!-- .entry-meta -->
+                        </header><!-- .entry-header -->
+                        <div class="entry-content">
+                            {% if post.image %}
+                                <a href="/posts/{{post.id}}/{{ post.alias }}" title="Template: Sticky">
+                                    <img style="max-width: 730px !important;max-height: 300px !important;" src="{{ post.image }}" class="thumbnail col-sm-6 wp-post-image">
+                                </a>
+                            {% endif %}
+                            <div class="col-sm-6">
+                                <p>
+                                    {{ post.intro_text | title_length(300,'[...]') }}
+                                </p>
+                            </div>
+                            <p>
+                                <a class="btn btn-default read-more" href="/posts/{{post.id}}/{{ post.alias }}">Continue reading <i class="fa fa-chevron-right"></i>
+                                </a>
+                            </p>
+
+                            <a href="#" title="Template: Sticky"></a>
+
+
+                        </div><!-- .entry-content -->
+
+                        <hr class="section-divider">
+                    </article><!-- #post-## -->
+                {% endfor %}
+                {#<!---pagination---->#}
+                {{ totalPage | pagination_front(currentPage,route) }}
+            </main><!-- #main -->
+        </div><!-- #primary -->
+        <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+            {{ "right-sidebar"|get_sidebar(route)|safe }}
+        </div><!-- #secondary -->
+    </div>
+{% endblock %}

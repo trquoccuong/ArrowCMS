@@ -8,7 +8,7 @@ let _ = require('lodash'),
 
 let Promise = require('bluebird');
 Promise.promisifyAll(formidable);
-let pluginManager = require('arrowjs/pluginManager');
+let pluginManager = require('arrowjs').pluginManager;
 
 let _module = new BackModule;
 

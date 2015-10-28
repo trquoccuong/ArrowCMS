@@ -138,7 +138,7 @@ _module.update = function (req, res) {
  */
 _module.delete = function (req, res, next) {
     res.locals.deleteButton = __acl.addButton(req, route, 'category_delete');
-    let listId = req.param('ids').split(',');
+    let listId = req.body.ids.split(',');
     Promise.all([
         promise.map(listId, function (id) {
             return __models.post.findAndCountAll({
@@ -179,7 +179,7 @@ _module.delete = function (req, res, next) {
         __models.category.destroy({
             where: {
                 id: {
-                    'in': req.param('ids').split(',')
+                    'in': req.body.ids.split(',')
                 }
             }
         })

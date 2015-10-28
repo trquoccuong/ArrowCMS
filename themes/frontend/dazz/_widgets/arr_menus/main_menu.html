@@ -1,0 +1,56 @@
+{% macro render_child(mn, cls, menu_data ) %}
+    {% if mn.children %}
+        <li id="menu-item-1639" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1639 dropdown {{ cls }}">
+            <a title="{{ menu_data.name }}" href="{{ menu_data.link }}" data-toggle="dropdown" class="dropdown-toggle">{{ menu_data.name }} <span class="caret"></span></a>
+            <ul role="menu" class=" dropdown-menu">
+                {% for subMn in mn.children %}
+                    {% set _data = subMn.id|get_menu_data(_menus_data) %}
+                    {{ render_child(subMn,'', _data) }}
+                {% endfor %}
+            </ul>
+        </li>
+    {% else %}
+        <li id="menu-item-1636" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1636 {{ cls }}">
+            <a href="{{ menu_data.link }}"> {{ menu_data.name }}</a>
+        </li>
+    {% endif %}
+{% endmacro %}
+
+<ul id="menu-all-pages" class="nav navbar-nav">
+    {% for mn in _menus %}
+        {% set menu_data = mn.id|get_menu_data(_menus_data) %}
+        {% set cls = route|active_menu(menu_data.link,'active',1) %}
+        {{ render_child(mn, cls, menu_data) }}
+    {% endfor %}
+</ul>
+
+
+
+    {#<li id="menu-item-1636" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1636 active">#}
+        {#<a title="Home" href="#">Home</a>#}
+    {#</li>#}
+    {#<li id="menu-item-1647" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1647">#}
+        {#<a title="Gallery" href="https://colorlib.com/dazzling/page-a/">Gallery</a>#}
+    {#</li>#}
+    {#<li id="menu-item-1801" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1801">#}
+        {#<a title="Shortcodes" href="https://colorlib.com/dazzling/dazzling-shortcodes/">Shortcodes</a>#}
+    {#</li>#}
+    {#<li id="menu-item-1639" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1639 dropdown">#}
+        {#<a title="About" href="https://colorlib.com/dazzling/#" data-toggle="dropdown" class="dropdown-toggle">About <span class="caret"></span></a>#}
+        {#<ul role="menu" class=" dropdown-menu">#}
+            {#<li id="menu-item-1693" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1693"><a title="Page Markup And Formatting" href="https://colorlib.com/dazzling/about/page-markup-and-formatting/"><span class="glyphicon glyphicon-align-justify"></span>&nbsp;Page Markup And Formatting</a></li>#}
+            {#<li id="menu-item-1876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1876"><a title="Contact Form" href="https://colorlib.com/dazzling/contact-form/"><span class="glyphicon glyphicon-envelope"></span>&nbsp;Contact Form</a></li>#}
+            {#<li id="menu-item-1692" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1692"><a title="Page Image Alignment (Full-Width)" href="https://colorlib.com/dazzling/about/page-image-alignment/"><span class="glyphicon glyphicon-picture"></span>&nbsp;Page Image Alignment (Full-Width)</a></li>#}
+            {#<li id="menu-item-1640" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1640"><a title="Clearing Floats" href="https://colorlib.com/dazzling/about/clearing-floats/"><span class="glyphicon glyphicon-leaf"></span>&nbsp;Clearing Floats</a></li>#}
+            {#<li role="presentation" class="dropdown-header">Comment options</li>#}
+            {#<li role="presentation" class="divider"></li>#}
+            {#<li id="menu-item-1641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1641"><a title="Page with comments" href="https://colorlib.com/dazzling/about/page-with-comments/"><span class="glyphicon glyphicon-comment"></span>&nbsp;Page with comments</a></li>#}
+            {#<li id="menu-item-1642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1642"><a title="Page with comments disabled" href="https://colorlib.com/dazzling/about/page-with-comments-disabled/"><span class="glyphicon glyphicon-remove"></span>&nbsp;Page with comments disabled</a></li>#}
+            {#<li role="presentation" class="dropdown-header">More options</li>#}
+            {#<li role="presentation" class="divider"></li>#}
+            {#<li role="presentation" class="disabled"><a href="https://colorlib.com/dazzling/#">This item is disabled</a></li>#}
+        {#</ul>#}
+    {#</li>#}
+    {#<li id="menu-item-1646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1646">#}
+        {#<a title="Languages" href="https://colorlib.com/dazzling/lorem-ipsum/">Languages</a>#}
+    {#</li>#}

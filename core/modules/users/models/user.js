@@ -48,12 +48,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         user_url: {
             type : DataTypes.STRING(100),
-            validate : {
-                isUrl: {
-                    msg : 'Please input valid Url'
-                }
-
-            }
+            allowNull: true
         },
         user_registered: {
             type : DataTypes.DATE,
@@ -111,6 +106,35 @@ module.exports = function (sequelize, DataTypes) {
                 isInt : {
                     msg : 'please input integer value role_id'
                 }
+            },
+            set : function (val) {
+                let roleIds = this.getDataValue('role_ids');
+                let flag = false;
+                roleIds.split(',').forEach(function (v) {
+                    if (val === v)
+                        flag = true;
+                })
+                if(flag)
+                    this.setDataValue('role_id',val);
+                else
+                    this.setDataValue('role_id',0);
+            }
+        },
+        role_ids: {
+            type : DataTypes.TEXT,
+            allowNull : false,
+            set : function (val) {
+                let value = val.toString().split(',')
+                let temp = '';
+                let flag = false;
+                let role_id_value = this.getDataValue('role_id');
+                value.forEach(function (v) {
+                    if(temp.length>0) temp+=','+v;
+                    else temp+=v;
+                    if(v == role_id_value) flag=true;
+                })
+                if(!flag) this.setDataValue('role_id',Number(value[0]));
+                this.setDataValue('role_ids',temp);
             }
         },
         reset_password_expires: {

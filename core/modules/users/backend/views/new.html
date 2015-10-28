@@ -2,6 +2,8 @@
 
 {% block cssExtends %}
     <link rel="stylesheet" href="/theme_resources/backend/default/plugins/cropit/jquery.avatar.css" type="text/css"/>
+    <link href="/theme_resources/backend/default/plugins/select2/select2.css" rel="stylesheet">
+    <link href="/theme_resources/backend/default/plugins/select2/select2-bootstrap.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -17,26 +19,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>{{ 'all_table_column_username' | trans }} <span
-                                                class="required">*</span></label>
+                                                class="required"> *</span></label>
                                     <input type="text" class="form-control" name="user_login"
                                            value="{{ user.user_login }}" required="required"/>
                                 </div>
 
                                 <div class="form-group">
                                     <label>{{ 'all_table_column_fullname' | trans }}<span
-                                                class="required">*</span></label>
+                                                class="required"> *</span></label>
                                     <input type="text" class="form-control" name="display_name"
                                            value="{{ user.display_name }}" required="required"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>{{ 'all_table_column_email' | trans }}<span class="required">*</span></label>
+                                    <label>{{ 'all_table_column_email' | trans }}<span class="required"> *</span></label>
                                     <input type="email" class="form-control" name="user_email"
                                            value="{{ user.user_email }}" required="required"/>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>{{ 'all_table_column_phone' | trans }}<span class="required">*</span></label>
+                                    <label>{{ 'all_table_column_phone' | trans }}<span class="required"> *</span></label>
                                     <input type="text" class="form-control" name="phone"
                                            value="{{ user.phone }}" required="required"/>
                                 </div>
@@ -46,25 +48,36 @@
                                     <input type="text" class="form-control" name="user_url"
                                            value="{{ user.user_url }}"/>
                                 </div>
-                                {% if roles %}
+                                {% if role_ids %}
                                     <div class="form-group">
-                                        <label>{{ 'all_table_column_role' | trans }} <span
-                                                    class="required">*</span></label>
+                                        <label>{{ 'all_table_column_current_role' | trans }} <span class="required"> * </span></label>
                                         <select class="table-group-action-input form-control input-medium"
                                                 name="role_id" required="required">
-                                            {% for role in roles %}
+                                            {% for roleid in role_ids %}
                                                 {% set selected = "" %}
-                                                {% if role.id == user.role_id %}
+                                                {% if roleid.id == user.role_id %}
                                                     {% set selected = "selected" %}
                                                 {% endif %}
-                                                <option value="{{ role.id }}" {{ selected }}>{{ role.name }}</option>
+                                                <option value="{{ roleid.id }}" {{ selected }}>{{ roleid.name }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
-
+                                {% endif %}
+                                {% if roles %}
+                                    <div class="form-group">
+                                        <label for="role_ids">{{ 'all_table_column_role' | trans }}
+                                            <span class="required"> *</span>
+                                        </label>
+                                        <select multiple="multiple" name="role_ids" id="role_ids"
+                                                class="form-control">
+                                            {% for role in roles %}
+                                                <option value="{{ role.id }}">{{ role.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
                                     <div class="form-group">
                                         <label>{{ 'all_table_column_status' | trans }}<span
-                                                    class="required">*</span></label>
+                                                    class="required"> *</span></label>
                                         <select class="table-group-action-input form-control input-medium"
                                                 name="user_status" value="{{ user.user_status }}" required>
                                             {% if user.user_status == 'publish' %}
@@ -89,14 +102,14 @@
                             <div class="col-md-6">
                                 {% if not user %}
                                     <div class="form-group">
-                                        <label>{{ 'all_table_column_password' | trans }} <span class="required">*</span></label>
+                                        <label>{{ 'all_table_column_password' | trans }} <span class="required"> *</span></label>
                                         <input type="password" class="form-control" id="user_pass" name="user_pass"
                                                required="required"/>
                                     </div>
 
                                     <div class="form-group">
                                         <label>{{ 'm_users_backend_views_new_pass_confirm' | trans }}<span
-                                                    class="required">*</span></label>
+                                                    class="required"> *</span></label>
                                         <input type="password" class="form-control" id="confirm_pass"
                                                required="required"/>
                                     </div>
@@ -145,6 +158,8 @@
 {% block jsExtends %}
     <script src="/theme_resources/backend/default/plugins/cropit/jquery.cropit.min.js" type="text/javascript"></script>
     <script src="/theme_resources/backend/default/plugins/cropit/jquery.avatar_cropit.js" type="text/javascript"></script>
+    <script src="/theme_resources/backend/default/plugins/select2/select2.min.js" type="text/javascript"></script>
+
     <script>
         $(document).ready(function () {
             $.callAvatarModal($('#avt'), {
@@ -153,6 +168,22 @@
                 preview_elem: '#user_image',
                 form: '#edit-form'
             });
+
+            //begin init select2 role
+            var select2 = $('#role_ids');
+            select2.select2({
+                placeholder: "{{ 'all_table_column_role_placeholder' | trans }}",
+                templateSelection: function (option) {
+                    var text = $(option.element).text().trim();
+                    text = text.replace(/^[—]+/, '');
+                    return text;
+                }
+            });
+            {% if user.role_ids %}
+            var temp = '{{ user.role_ids | safe }}';
+            temp = temp.split(',');
+            select2.val(temp).trigger('change');
+            {% endif %}
         });
 
         var password = document.getElementById("user_pass")

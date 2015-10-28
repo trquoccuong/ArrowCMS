@@ -215,12 +215,29 @@ _module.update = function (req, res, next) {
             } else fulfill(data);
         })
     }).then(function (data) {
-        return edit_user.updateAttributes(data).then(function () {
+        return edit_user.updateAttributes(data).then(function (result) {
             req.flash.success(__.t('m_users_backend_controllers_index_update_flash_success'));
 
-            if (req.url.indexOf('profile') !== -1) return res.redirect('/admin/users/profile/' + req.params.cid);
-
-            return res.redirect('/admin/users/' + req.params.cid);
+            if (req.url.indexOf('profile') !== -1){
+                redis.del(req.user.key, function (err,reply) {
+                    if (!err)
+                    __models.user.find({
+                        include: [__models.role],
+                        where: {
+                            id: result.id
+                        }
+                    }).then(function (user) {
+                        let user_tmp = JSON.parse(JSON.stringify(user));
+                        user_tmp.key = __config.redis_prefix + 'current-user-' + user.id;
+                        user_tmp.acl = JSON.parse(user_tmp.role.rules);
+                        redis.setex(user_tmp.key, 300, JSON.stringify(user_tmp));
+                    }).catch(function (error) {
+                        console.log(error.stack);
+                    });
+                });
+                return res.redirect('/'+__config.admin_prefix +'/users/profile/' + req.params.cid);
+            }
+            return res.redirect('/'+__config.admin_prefix +'/users/' + req.params.cid);
         });
     }).catch(function (error) {
         if (error.name == 'SequelizeUniqueConstraintError') {
@@ -269,7 +286,6 @@ _module.save = function (req, res, next) {
 
     // Get form data
     var data = req.body;
-
     return new Promise(function (fulfill, reject) {
         if (data.base64 && data.base64 != '') {
             let fileName = folder_upload + slug(data.user_login).toLowerCase() + '.png';
@@ -295,6 +311,9 @@ _module.save = function (req, res, next) {
                     res.redirect(back_link);
                 }
             });
+        }).catch(function (error) {
+            req.flash.error('Name: ' + error.name + '<br />' + 'Message: ' + error.message);
+            res.redirect(back_link);
         })
 };
 
@@ -340,10 +359,24 @@ _module.signout = function (req, res) {
  */
 _module.profile = function (req, res) {
     // Add button
-    res.locals.saveButton = __acl.addButton(req, route, 'update_profile');
-    _module.render(req, res, 'new.html', {
-        user: req._user
-    });
+    let role_ids = req._user.role_ids.split(',');
+    __models.role.findAll({
+        where : {
+            id : {
+                $in : role_ids
+            }
+        },
+        raw : true
+    }).then(function (results) {
+        res.locals.saveButton = __acl.addButton(req, route, 'update_profile');
+        _module.render(req, res, 'new.html', {
+            user: req._user,
+            role_ids : results
+        });
+    }).catch(function (err) {
+        res.status(500).send(err.stack);
+    })
+
 };
 /**
  * Get Avatar library
@@ -397,12 +430,7 @@ _module.saveOAuthUserProfile = function (req, profile, done) {
         }
     }).then(function (user) {
         if (user) {
-            if (user.role_id !== profile.role_id) {
-                profile.role_id = user.role_id
-            }
-            user.updateAttributes(profile).then(function (user) {
-                return done(null, user);
-            });
+            return done(null, user);
         } else {
             __models.user.create(profile).then(function (user) {
                 return done(null, user);

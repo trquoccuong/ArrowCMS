@@ -26,7 +26,6 @@ module.exports = function () {
                 user_email: providerData.email,
                 user_login: providerData.email,
                 display_name: providerData.name,
-                role_id: 21,
                 user_image_url: 'https://graph.facebook.com/' + providerData.id + '/picture?width=200&height=200&access_token=' + providerData.accessToken,
                 user_status: 'publish'
             };

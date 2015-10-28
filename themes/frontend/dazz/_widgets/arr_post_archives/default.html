@@ -1,0 +1,18 @@
+<aside id="recent-comments-2" class="widget categories">
+    {% if items | length %}
+        <h3 class="widget-title">{{ widget.data.title|title }}</h3>
+        <ul id="categories">
+            {% for item in items %}
+                <li class="categories">
+                    <i class="fa fa-calendar"></i>
+                    <a href="/archives/{{ item.datex|replace('-99','')|replace('-','/') }}/">
+                        {{ item.date|date('F Y') }}
+                        {% if widget.data.show_post_count == '1' %}
+                            <span class="pull-right">({{ item.count }})</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</aside>

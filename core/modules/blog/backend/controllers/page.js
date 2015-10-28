@@ -137,24 +137,6 @@ _module.list = function (req, res) {
     });
 };
 
-_module.listAll = function (req, res) {
-    let query = req.param('query') || '';
-    query = query.toLowerCase();
-
-    __models.post.findAll({
-        where: ["type='page' AND LOWER(title) like '%" + query + "%'"],
-        order: 'title asc'
-    }).then(function (tags) {
-        let data = [];
-        if (tags.length > 0) {
-            tags.forEach(function (t) {
-                data.push({value: t.title, data: t.id});
-            });
-        }
-        let result = {query: query, suggestions: data};
-        res.json(result);
-    });
-};
 
 _module.redirectToView = function (req, res) {
     __models.post.find({
