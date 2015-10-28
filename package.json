@@ -2,7 +2,12 @@
   "name": "arrowjs-cms",
   "description": "ArrowJS CMS base on ArrowJS",
   "version": "0.0.1",
-  "author": "Techmaster",
+  "author" : "Techmaster",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TechMaster/ArrowCMS.git"
+  },
   "dependencies": {
     "express" : "*",
     "connect-redis" : "^2.4.1",
