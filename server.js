@@ -6,7 +6,7 @@
 process.env.NODE_ENV = "production";
 let Arrow = require('arrowjs');
 
-let application = new Arrow;
+let application = new Arrow();
 
 application.before(require('./core_route'));
 application.config();
