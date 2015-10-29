@@ -37,14 +37,6 @@ module.exports = {
     sessionSecret: 'GREEN',
     sessionCollection: 'sessions',
     theme: 'dazz',
-    assets: {
-        lib: {
-            css: [
-                'public/lib/bootstrap/dist/css/bootstrap.css',
-                'public/lib/bootstrap/dist/css/bootstrap-theme.css'
-            ]
-        }
-    },
     resource : {
         path : 'public',
         option : {
