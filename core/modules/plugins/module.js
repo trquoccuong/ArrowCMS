@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.plugins = {
+module.exports = function () {
+    var plugins = {
         title: __.t('m_plugins_backend_module_title'),
         author: 'Jack',
         version: '0.1.0',
@@ -33,6 +33,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return plugins;
 };
 

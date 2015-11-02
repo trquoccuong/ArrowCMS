@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (modules) {
-    modules.widgets = {
+    var widgets = {
         title: __.t('m_widgets_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.1.1',
@@ -34,6 +34,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return widgets;
 };
 

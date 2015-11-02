@@ -3,6 +3,16 @@
 module.exports = {
     key: 'site_setting',
     redis_prefix: 'arrowjs_',
+    redis_key : {
+        configs : "site_setting",
+        modules : "all_modules",
+        backend_menus : "backend_menus",
+        plugins : "all_plugins"
+    },
+    redis_event : {
+        update_config : "config_update",
+        update_module : "module_update"
+    },
     app: {
         language: 'en_US',
         title: 'ArrowJS',
@@ -26,36 +36,25 @@ module.exports = {
             user: 'test@gmail.com',
             pass: 'secret'
         },
-        mailer_from: "Techmaster <support@techmaster.vn>",
-        mailer_to: "admin@techmaster.vn"
+        mailer_from: "Techmaster <test@techmaster.vn>",
+        mailer_to: "test@techmaster.vn"
     },
     pagination: {
-        number_item: 5
+        number_item: 20
     },
     port: process.env.PORT || 3333,
     templateEngine: 'nunjucks',
-    sessionSecret: 'GREEN',
+    sessionSecret: 'ARROWJS',
     sessionCollection: 'sessions',
-    theme: 'dazz',
+    theme: 'default',
     resource : {
         path : 'public',
         option : {
-            redirect: false
+            maxAge: 3600
         }
     },
     bodyParser : {
         extended: true,
         limit: '5mb'
-    },
-    regExp : {
-        name_reg : /[+-.,!@#$%^&*();\/|<>"'\\]/g,
-        title_reg : /[+.@#$%^&*();\/|<>"'\\]/g,
-        alias_reg : /[+_.,!@#$%^&*();\/|<>"'\\ ]/g,
-        categories_reg : /^[\:0-9]*$/g, // like : :123:234:345:
-        type_reg : /^[a-z]$/ig,
-        username_reg : /^[a-z0-9_-]+$/ig,
-        display_name_reg : /[+.,!@#$%^&*();\/|<>"'\\]/g,
-        phone_reg : /^\d{9,11}$/ig
-    },
-    raw_config : ["reqExp"]
+    }
 };

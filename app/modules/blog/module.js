@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.blog = {
+module.exports = function () {
+    return {
         title: __.t('m_blog_backend_module_title'),
         author: 'TechmasterVN',
         version: '0.0.1',
@@ -86,7 +86,5 @@ module.exports = function (modules) {
             ]
         }
     };
-
-    return modules;
 };
 

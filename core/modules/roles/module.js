@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.roles = {
+module.exports = function () {
+    var roles = {
         title: __.t('m_roles_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.1.0',
@@ -42,6 +42,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return roles;
 };
 

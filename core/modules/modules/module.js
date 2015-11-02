@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.modules = {
+module.exports = function () {
+    var modules = {
         title: __.t('m_modules_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.1.0',

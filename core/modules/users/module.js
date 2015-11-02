@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (modules) {
-    modules.users = {
+    var users = {
         title: __.t('m_users_backend_title'),
         author: 'Nguyen Van Thanh',
         version: '0.1.0',
@@ -46,6 +46,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return users;
 };
 

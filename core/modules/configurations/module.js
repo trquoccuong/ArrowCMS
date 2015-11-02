@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.configurations = {
+module.exports = function () {
+    var configurations = {
         title: __.t('m_configurations_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.0.1',
@@ -42,6 +42,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return configurations;
 };
 

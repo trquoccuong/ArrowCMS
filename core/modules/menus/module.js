@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = function (modules) {
-    modules.menus = {
+module.exports = function () {
+    var menus = {
         title: __.t('m_menus_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.0.1',
@@ -47,6 +47,6 @@ module.exports = function (modules) {
         }
     };
 
-    return modules;
+    return menus;
 };
 

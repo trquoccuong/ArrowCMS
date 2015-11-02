@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (modules) {
-    modules.uploads = {
+    var uploads = {
         title: __.t('m_upload_backend_module_title'),
         author: 'Nguyen Van Thanh',
         version: '0.1.1',
@@ -9,6 +9,6 @@ module.exports = function (modules) {
         rules: []
     };
 
-    return modules;
+    return uploads;
 };
 
