@@ -13,7 +13,7 @@
     "connect-redis" : "^2.5.1",
     "express-session" : "*",
     "adm-zip": "^0.4.7",
-    "arrowjs": "*",
+    "arrowjs": "0.2.0",
     "bluebird": "^2.10.1",
     "formidable": "~1.0.16",
     "image-size": "~0.3.5",
